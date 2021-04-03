@@ -45,8 +45,8 @@
 </tr>
 <tr>
 <td>REQ-7</td>
-<td>2</td>
-<td>The system should allow granted user to change status of the order("order accepted", "delivering", "delivery completed", "cook completed", etc).</td>
+<td>3</td>
+<td>The system should allow granted user to change status of the order and reject the order.</td>
 <td>F</td>
 </tr>
 <tr>
