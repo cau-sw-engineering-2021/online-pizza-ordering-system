@@ -12,6 +12,11 @@ https://nevonprojects.com/online-pizza-ordering-system/
 |정종민|20174438|산업보안|alertjjm|
 |김준기|20173156|산업보안|jooomOut|
 
+### Subgroups
+1. 피자주문: 신원준, 김준기
+2. 관리자: 정종민, 정용준
+3. 주문상태: 이민욱, 여일구
+
 # Problem Statement
 
 ## The Problem
