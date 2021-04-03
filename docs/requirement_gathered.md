@@ -22,10 +22,10 @@
 | | TODO | The system shall give pages to see the ordering lists. | F |
 | | TODO | The system should allow an orderer to create an user account by receiving address, name, id, password information. | F |
 | | TODO | The system shall allow an online-orderer to track status("ordered", "canceled", "order accepted", "order rejected", "cook completed", "served", "delivering", "delivery completed", "invalid") by using the Order ID. | F |
-
+| | TODO | The system shall allow an offline-orderer to see status("ordered", "cooking", "accept available") on a simple page. | F |
 
 ### Stakeholder Lists
- * Orderer
+ * Orderer(online, offline)
  * Cook
  * Delivery man
  * Cashier
