@@ -55,6 +55,12 @@
 <td>The system shall provide allergy information for every menu.</td>
 <td>F</td>
 </tr>
+<tr>
+<td>REQ-9</td>
+<td>3</td>
+<td>The system should allow customer to change and cancle the order before the order is accepted</td>
+<td>F</td>
+</tr>
 </table>
 
 <!--
