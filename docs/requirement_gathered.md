@@ -18,6 +18,8 @@
 | REQ-9-4 | 2 | The system shall change the order status to "invalid" in an emergency. | NF |
 | REQ-10 | 5 | The system shall provide allergy information for every menu. | F |
 | REQ-11 | 3 | The system should allow customer to change and cancel the order before the order is accepted. | F |
+| | TODO | The system shall maintain a history log of all orders. | NF |
+| | TODO | The system shall give pages to see the ordering lists. | F |
 
 ### Stakeholder Lists
  * Orderer
