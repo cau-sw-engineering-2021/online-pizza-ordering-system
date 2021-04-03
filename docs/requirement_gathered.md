@@ -32,16 +32,16 @@
 <td>F</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>REQ-5</td>
+<td>3</td>
+<td>The system shall allow access to admin page where "menu management", "sales breakdown", "member inquiry" menu is shown through seperately granted ID.</td>
+<td>F</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>REQ-6</td>
+<td>3</td>
+<td>The system shall allow retrieving, editing, deleting pizza menus on "menu management", viewing pizza sales amount and revenue on "sales breakdown", viewing member list and granting privilege on "member inquiry".</td>
+<td>F</td>
 </tr>
 </table>
 
