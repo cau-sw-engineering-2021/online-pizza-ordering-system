@@ -16,7 +16,7 @@
 <tr>
 <td>REQ-2</td>
 <td>3</td>
-<td>The system shall allow ordering new pizza either as a member or non-member when the address and name is given.</td>
+<td>The system shall allow ordering new pizza both as a member or non-member</td>
 <td>F</td>
 </tr>
 <tr>
