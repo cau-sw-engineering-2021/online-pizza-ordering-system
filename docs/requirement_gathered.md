@@ -8,28 +8,28 @@
 <th>Function/Non-Function</th>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>REQ-1</td>
+<td>5</td>
+<td>The system shall show menus of pizzas. When a pizza is clicked, the system shall allow choosing toppings and size options etc.</td>
+<td>F</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>REQ-2</td>
+<td>3</td>
+<td>The system shall allow ordering new pizza either as a member or non-member when the address and name is given.</td>
+<td>F</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>REQ-3</td>
+<td>2</td>
+<td>The system shall allow choosing receiving options("take out", "delivery", "offline")</td>
+<td>F</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>REQ-4</td>
+<td>2</td>
+<td>The system should give an Order ID when ordering is completed, which used to track status of the order("order accepted", "delivering", "delivery completed", "cook completed", etc).</td>
+<td>F</td>
 </tr>
 <tr>
 <td></td>
