@@ -13,3 +13,11 @@
 | REQ-9 | 2 | The system should allow granted user to change status of the order("order accepted", "delivering", "delivery completed", "cook completed", etc). | F |
 | REQ-10 | 5 | The system shall provide allergy information for every menu. | F |
 | REQ-11 | 3 | The system should allow customer to change and cancel the order before the order is accepted. | F |
+
+### Stakeholder Lists
+ * Orderer
+ * Cook
+ * Delivery man
+ * Casher
+ * Server
+ * Manager
