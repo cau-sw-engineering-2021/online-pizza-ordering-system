@@ -51,12 +51,6 @@
 </tr>
 <tr>
 <td>REQ-8</td>
-<td>2</td>
-<td>The system shall maintain a history log of all attempted accesses for later review.</td>
-<td>NF</td>
-</tr>
-<tr>
-<td>REQ-9</td>
 <td>5</td>
 <td>The system shall provide allergy information for every menu.</td>
 <td>F</td>
