@@ -43,6 +43,12 @@
 <td>The system shall allow retrieving, editing, deleting pizza menus on "menu management", viewing pizza sales amount and revenue on "sales breakdown", viewing member list and granting privilege on "member inquiry".</td>
 <td>F</td>
 </tr>
+<tr>
+<td>REQ-7</td>
+<td>2</td>
+<td>The system should allow granted user to change status of the order("order accepted", "delivering", "delivery completed", "cook completed", etc).</td>
+<td>F</td>
+</tr>
 </table>
 
 <!--
