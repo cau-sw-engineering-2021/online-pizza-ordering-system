@@ -31,6 +31,7 @@
 | | TODO | The system should allow an orderer to change address before ordering. | F |
 | | TODO | The system should allow an orderer to register and change their own personal information like phone-number, address, ... and so on | F |
 | | TODO | The system should provide display options(by period, by pizza) on "sales breakdown". | F |
+| | TODO | The system shall encrypt and store orderer pw . | NF |
 
 ### Stakeholder Lists
  * Orderer
