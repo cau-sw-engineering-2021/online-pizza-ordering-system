@@ -17,7 +17,7 @@
 | REQ-9-1 | 2 | The system should allow a cook to change order's status from "order accepted" to "cook completed" | F |
 | REQ-9-2 | 2 | The system should allow a delivery man and server to change order's status from "cook completed" to ("delivering" and "served"). | F |
 | REQ-9-3 | 2 | The system should allow a delivery man to change order's status from "delivering" to "delivery completed". | F |
-| REQ-9-4 | 2 | The system shall change the order status to "invalid" in an emergency. | NF |
+| REQ-9-4 | 2 | The system shall change the order status to "invalid" in an emergency. | F |
 | REQ-10 | 5 | The system shall provide allergy information for every menu. | F |
 | | TODO | The system shall maintain a history log of all orders. | NF |
 | | TODO | The system shall give pages to see the ordering lists. | F |
@@ -27,7 +27,7 @@
 | | TODO | The system should allow an orderer to type an extra requirement before completing order. | F |
 | | TODO | The system shall allow an orderer to type address if "delivery" option choosen. | F |
 | | 5 | The system should allow a manager to set opening hours. if not registered, default value is 00:00 ~ 24:00  | F |
-| | 5 | The system shall not accept orders outside of the opening hours | F |
+| | 5 | The system shall not accept orders outside of the opening hours | NF |
 | | TODO | The system should allow an orderer to change address before ordering. | F |
 
 ### Stakeholder Lists
