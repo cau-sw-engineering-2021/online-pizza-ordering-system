@@ -30,7 +30,7 @@
 | | 5 | The system shall not accept orders outside of the opening hours
 
 ### Stakeholder Lists
- * Orderer(online, offline)
+ * Orderer
  * Cook
  * Delivery man
  * Cashier
