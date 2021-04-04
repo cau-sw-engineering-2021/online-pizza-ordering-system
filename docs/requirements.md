@@ -12,7 +12,7 @@
 | REQ-6 | 2 | The system should give an Order ID to the orderer when ordering is completed. | F |
 | REQ-6-1 | TODO | The system should allow an orderer to cancel or change the order before "order accepted". | F |
 | REQ-7 | 3 | The system shall allow access to admin page where "menu management", "sales breakdown", "member inquiry" menu is shown through separately granted ID. | F |
-| REQ-8 | 3 | The system shall allow retrieving, editing, deleting pizza menus on "menu management", viewing pizza sales amount and revenue on "sales breakdown", viewing member list and granting privilege on "member inquiry". | F |
+| REQ-8 | 3 | The system shall allow retrieving, editing, deleting pizza menus on "menu management", viewing pizza sales amount and revenue on "sales breakdown", managing member list(granting privilege, add/remove/edit list) on "member inquiry". | F |
 | REQ-9 | 2 | The system should allow a cashier to change order's status from "ordered" to ("order accepted" or "order rejected"). | F |
 | REQ-9-1 | 2 | The system should allow a cook to change order's status from "order accepted" to "cook completed" | F |
 | REQ-9-2 | 2 | The system should allow a delivery man and server to change order's status from "cook completed" to ("delivering" and "served"). | F |
