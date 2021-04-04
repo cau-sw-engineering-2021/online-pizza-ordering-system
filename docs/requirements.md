@@ -3,7 +3,7 @@
 | Identifier | Priority | Requirement | Function/Non-Function |
 | - | - | - | - |
 | REQ-1 | 5 | The system shall show menus of pizzas. When showing menus, (price, size, naming) shall be shown. | F |
-| REQ-2 | 3 | The system shall allow an orderer to choose toppings, size option and additional comments when an item of pizza menu is clicked. | F |
+| REQ-2 | 3 | The system shall allow an orderer to choose toppings, size option when an item of pizza menu is clicked. | F |
 | REQ-3 | 1 | The system shall be able to put items in the cart with all options selected. | F |
 | | 3 | The system shall allow an orderer to remove item in the cart. | F |
 | | | The system shall allow an orderer to order a list of items in the cart. | F |
@@ -32,6 +32,8 @@
 | | TODO | The system should allow an orderer to register and change their own personal information like phone-number, address, ... and so on | F |
 | | TODO | The system should provide display options(by period, by pizza) on "sales breakdown". | F |
 | | TODO | The system shall encrypt and store orderer pw . | NF |
+| | TODO | The system should allow orderer to type additional comments before completing order. | NF |
+
 
 ### Stakeholder Lists
  * Orderer
