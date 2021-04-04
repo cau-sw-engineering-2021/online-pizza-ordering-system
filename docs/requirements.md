@@ -30,6 +30,7 @@
 | | 5 | The system shall not accept orders outside of the opening hours | NF |
 | | TODO | The system should allow an orderer to change address before ordering. | F |
 | | TODO | The system should allow an orderer to register and change their own personal information like phone-number, address, ... and so on | F |
+| | TODO | The system should provide display options(by period, by pizza) on "sales breakdown". | F |
 
 ### Stakeholder Lists
  * Orderer
