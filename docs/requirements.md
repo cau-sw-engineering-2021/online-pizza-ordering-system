@@ -26,8 +26,9 @@
 | | TODO | The system shall allow an orderer to see status("ordered", "cooking", "accept available") on a simple page. | F |
 | | TODO | The system should allow an orderer to type an extra requirement before completing order. | F |
 | | TODO | The system shall allow an orderer to type address if "delivery" option choosen. | F |
-| | 5 | The system allow a manager to set opening hours
-| | 5 | The system shall not accept orders outside of the opening hours
+| | 5 | The system should allow a manager to set opening hours. if not registered, default value is 00:00 ~ 24:00  | F |
+| | 5 | The system shall not accept orders outside of the opening hours | F |
+
 
 ### Stakeholder Lists
  * Orderer
