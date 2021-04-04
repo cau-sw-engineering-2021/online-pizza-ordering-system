@@ -5,12 +5,12 @@ https://nevonprojects.com/online-pizza-ordering-system/
 ### 팀원 구성
 |이름|학번|학과|깃허브|
 |------|---|---|---|
-|이민욱|20171105|소프트웨어|makerdark98|
-|정용준|20173875|소프트웨어|dkile|
-|신원준|20170223|소프트웨어|identity16|
-|여일구|20172609|소프트웨어|sikutisa|
-|정종민|20174438|산업보안|alertjjm|
-|김준기|20173156|산업보안|jooomOut|
+|이민욱|20171105|소프트웨어|[makerdark98](https://github.com/makerdark98)|
+|정용준|20173875|소프트웨어|[dkile](https://github.com/dkile)|
+|신원준|20170223|소프트웨어|[identity16](https://github.com/identity16)|
+|여일구|20172609|소프트웨어|[sikutisa](https://github.com/sikutisa)|
+|정종민|20174438|산업보안|[alertjjm](https://github.com/alertjjm)|
+|김준기|20173156|산업보안|[jooomOut](https://github.com/jooomOut)|
 
 ### Subgroups
 1. 피자주문: 신원준, 김준기
