@@ -17,7 +17,7 @@ UC7: AuthenticateUser
 UC8: History log includes UC7
 
 | Actor | Actor's Goal(what the actor intends to accomplish) | Use Case name |
-| - | - | - | - |
+| - | - | - |
 | Orderer | To see stautus of orders | UC1(OrderStatus page) |
 | Orderer | To see history log of past orders | UC8(History log) |
 | cashier | To change order's status from "ordered" to ("order accepted" or "order rejected") | UC3(Updated by cashier) |
