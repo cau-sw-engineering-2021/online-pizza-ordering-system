@@ -33,7 +33,7 @@
 | | TODO | The system should provide display options(by period, by pizza) on "sales breakdown". | F |
 | | TODO | The system shall encrypt and store orderer pw . | NF |
 | | TODO | The system should allow orderer to type additional comments before completing order. | F |
-
+| | TODO | The system shall allow users to be granted only when they have appropriate authorities. | NF |
 
 ### Stakeholder Lists
  * Orderer
