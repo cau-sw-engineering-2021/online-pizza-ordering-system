@@ -12,14 +12,16 @@ UC5:UpdatePizza
 
 UC6:DeletePizza
 
-UC7:ManageUsers includes UC8
+UC7:ManageUsers extends UC8~UC10
 
-UC8:UpdateAuthority
+UC8:AddUser
 
-UC??: 회원 Update랑 Delete는 requiremnets에 없으니까 하지말까여?
+UC9:UpdateUser
 
-UC9:MangageSales
+UC10:DeleteUser
 
-UC10: DisplayByPizza
+UC11:DisplaySales extends UC12~UC13
 
-UC11: DisplayByPeriod
+UC12: DisplayByPizza
+
+UC13: DisplayByPeriod
