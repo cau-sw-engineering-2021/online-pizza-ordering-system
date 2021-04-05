@@ -2,6 +2,20 @@
 
 | Identifier | Priority | Requirement | Function/Non-Function |
 | - | - | - | - |
+| REQ-1 | 1 | The system should show menus of pizzas in the first page | NF |
+| REQ-2 | 3 | The system shall show size, price by size, name with menus. | NF |
+| REQ-3 | 1 | The system should display "go to cart", "login"/"logout" buttons on every pages | NF |
+| REQ-4 | 5 | The system shall provide allergy information for every menu. | NF |
+| REQ-5 | 5 | The system shall allow an orderer to choose toppings and size option when an item of pizza menu is clicked. | F |
+| REQ-6 | 3 | The system should allow orderer to type additional comments before completing order. | F |
+| REQ-7 | 5 | The system shall be able to put items in the cart with options(size, topping, side menu, ...). | F |
+| REQ-8 | 4 | The system shall allow an orderer to remove item in the cart. | F |
+| REQ-9 | 5 | The system shall allow an orderer to order a list of items in the cart. | F |
+| REQ-10 | 4 | The system shall allow an orderer to choose receiving options("take out", "delivery", "offline"). | F |
+| REQ-11 | 4 | The system shall allow an orderer to choose payment methods("online", "offline")| F |
+| REQ-12 | 4 | The system shall receive card number when an orderer selects "online payment" | F |
+| REQ-13 | 1 | The system should ask if an orderer wants to go to cart page. | NF |
+| REQ-14 | 1 | The system should an orderer to go to individual menu page of an item in the cart page. | NF |
 | REQ-1 | 5 | The system shall show menus of pizzas. When showing menus, (price, size, naming) shall be shown. | F |
 | REQ-2 | 3 | The system shall allow an orderer to choose toppings, size option when an item of pizza menu is clicked. | F |
 | REQ-3 | 1 | The system shall be able to put items in the cart with all options selected. | F |
