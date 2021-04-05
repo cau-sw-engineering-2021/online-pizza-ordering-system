@@ -34,6 +34,22 @@
 | | TODO | The system shall encrypt and store orderer pw . | NF |
 | | TODO | The system should allow orderer to type additional comments before completing order. | F |
 | | TODO | The system shall allow users to be granted only when they have appropriate authorities. | NF |
+| 1 | orderer | |
+| REQ-14 | 3 | The system should allow an orderer to move from the shopping cart page to the menu page. | |
+| REQ-15 | 3 | The system should allow an orderer to move from the menu page to the shopping cart page. | |
+| REQ-16 | 3 | The system should allow an orderer to move to order decision phase only from shopping cart page. | |
+| REQ-17 | 2 | The system should alert a notification saying, "If you are not logged in, you will proceed as a non-member.", before entering the order decision stage.| |
+| REQ-18 | 1 | The system maintains the contents of the cart that added when he or she is not a member, even if the user logs in| |
+| REQ-19 | 2 | The system should give an Order ID to the orderer when ordering is completed. | F |
+| REQ-20 | 1 | The system shall allow orderers to check their own order list. | F |
+| REQ-21 | 5 | The system shall not accept orders outside of the opening hours | NF |
+| REQ-22 | 1 | The system should allow an orderer to change address before ordering. | F |
+| REQ-23 | 1 | The system should take address from stored user information in DB during the order decision phase, if orderer is logged in | |
+| REQ-24 | 4 | The system shall allow an orderer to type address if "delivery" option choosen. | F |
+| REQ-25 | 1 | The system should allow an orderer to cancel or change the order before "order accepted". | F |
+| REQ-26 | 1 | The system should allow an orderer to adjust the quantity of pizza in the cart| |
+| REQ-27 | 4 | The system should shows all items in the cart. | |
+| REQ-28| 3 | The System should allow an orderer to move to the order decision stage only if there is more than one in orderer's cart. | NF |
 | 3 | 직 | 원 |  |
 | REQ-52 | 4 | The system shall allow an orderer to order new pizza both as a member or non-member. | NF |
 | REQ-53 | 5 | The system shall allow an orderer to see status("ordered" as "cooking", "cook completed") on a simple page. | F |
