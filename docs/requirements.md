@@ -34,7 +34,6 @@
 | | TODO | The system shall encrypt and store orderer pw . | NF |
 | | TODO | The system should allow orderer to type additional comments before completing order. | F |
 | | TODO | The system shall allow users to be granted only when they have appropriate authorities. | NF |
-
 | 3 | 직 | 원 |  |
 | REQ-52 | 4 | The system shall allow an orderer to order new pizza both as a member or non-member. | NF |
 | REQ-53 | 5 | The system shall allow an orderer to see status("ordered" as "cooking", "cook completed") on a simple page. | F |
