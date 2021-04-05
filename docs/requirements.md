@@ -35,10 +35,37 @@
 | | TODO | The system should allow orderer to type additional comments before completing order. | F |
 | | TODO | The system shall allow users to be granted only when they have appropriate authorities. | NF |
 
+| 3 | 직 | 원 |  |
+| REQ-52 | 4 | The system shall allow an orderer to order new pizza both as a member or non-member. | NF |
+| REQ-53 | 5 | The system shall allow an orderer to see status("ordered" as "cooking", "cook completed") on a simple page. | F |
+| REQ-54 | 5 | The system should allow a clerk to change order's status from "ordered" to ("order accepted" or "order rejected"). | F |
+| REQ-55 | 5 | The system should allow a clerk to change order's status from "order accepted" to "cook completed" | F |
+| REQ-56 | 3 | The system shall change the order status to "invalid" in an emergency by clerk. | NF |
+| REQ-57 | 5 | The system should allow a delivery man and server to change order's status from "cook completed" to ("delivering" and "served"). | F |
+| REQ-58 | 5 | The system should allow a delivery man to change order's status from "delivering" to "delivery completed". | F |
+| REQ-59 | 1 | The system should record the last time when order's status has changed. | NF |
+| REQ-60 | 3 | The system should display initial page when user logs out. | F |
+| REQ-61 | 5 | The system shall denied the access to user's info when the user logs out. | NF |
+| REQ-62 | 3 | The system should check that the password length is over 8 characters, including at least one number, upper/lower case, and special character each  | NF |
+| REQ-63 | 5 | The system should maintain a unique user's ID and email. | NF |
+| REQ-64 | 3 | The system should provide user info page. | F |
+| REQ-65 | 1 | The system should get the password when the user try to enter user info page. | NF |
+| REQ-66 | 4 | The system should allow password mistakes up to 5 times. | NF |
+| REQ-67 | 4 | The system shall encrypt and store orderer pw . | NF |
+| REQ-68 | 5 | The system shall provide the page that display status of order("Ordered completed", "Cook completed") | F |
+| REQ-69 | 2 | The system should provide the page that "Ordered completed" and "Cook completed" can't rewrite(Readonly) | NF |
+
+1 는 없어도 지장없음, 유저의 편의성만을 따짐
+2 는 추적은 가능함
+3 는 독립적으로 동작 가능함
+4 는 주요 비지니스 로직
+5 는 주요 필수 로직
+
+
+Non-functional vs Functional 이 뭔지 좀더 찾아보고 느낀다음 작성을 매꿔주세요.
+
 ### Stakeholder Lists
  * Orderer
- * Cook
  * Delivery man
- * Cashier
- * Server
+ * Clerk
  * Manager
