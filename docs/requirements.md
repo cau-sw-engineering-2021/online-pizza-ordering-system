@@ -68,8 +68,7 @@
 | REQ-66 | 1 | The system should get the password when the user try to enter user info page. | NF |
 | REQ-67 | 4 | The system should allow password mistakes up to 5 times. | NF |
 | REQ-68 | 4 | The system shall encrypt and store orderer pw. | NF |
-| REQ-69 | 5 | The system shall provide the page that display status of order("ordered completed", "cook completed"). | F |
-| REQ-70 | 2 | The system should provide the page that "ordered completed" and "cook completed" can't rewrite(Readonly). | NF |
+| REQ-69 | 2 | The system should provide the page that "ordered completed" and "cook completed" can't rewrite(Readonly). | NF |
 
 1 는 없어도 지장없음, 유저의 편의성만을 따짐
 2 는 추적은 가능함
