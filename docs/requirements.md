@@ -38,21 +38,22 @@
 | REQ-52 | 4 | The system shall allow an orderer to order new pizza both as a member or non-member. | NF |
 | REQ-53 | 5 | The system shall allow an orderer to see status("ordered" as "cooking", "cook completed") on a simple page. | F |
 | REQ-54 | 5 | The system should allow a clerk to change order's status from "ordered" to ("order accepted" or "order rejected"). | F |
-| REQ-55 | 5 | The system should allow a clerk to change order's status from "order accepted" to "cook completed" | F |
-| REQ-56 | 3 | The system shall change the order status to "invalid" in an emergency by clerk. | NF |
+| REQ-55 | 5 | The system should allow a clerk to change order's status from "order accepted" to "cook completed". | F |
+| REQ-56 | 3 | The system shall change the order status to "invalid" in an emergency by clerk. | F |
 | REQ-57 | 5 | The system should allow a delivery man and server to change order's status from "cook completed" to ("delivering" and "served"). | F |
 | REQ-58 | 5 | The system should allow a delivery man to change order's status from "delivering" to "delivery completed". | F |
 | REQ-59 | 1 | The system should record the last time when order's status has changed. | NF |
-| REQ-60 | 3 | The system should display initial page when user logs out. | F |
-| REQ-61 | 5 | The system shall denied the access to user's info when the user logs out. | NF |
-| REQ-62 | 3 | The system should check that the password length is over 8 characters, including at least one number, upper/lower case, and special character each  | NF |
-| REQ-63 | 5 | The system should maintain a unique user's ID and email. | NF |
-| REQ-64 | 3 | The system should provide user info page. | F |
-| REQ-65 | 1 | The system should get the password when the user try to enter user info page. | NF |
-| REQ-66 | 4 | The system should allow password mistakes up to 5 times. | NF |
-| REQ-67 | 4 | The system shall encrypt and store orderer pw . | NF |
-| REQ-68 | 5 | The system shall provide the page that display status of order("Ordered completed", "Cook completed") | F |
-| REQ-69 | 2 | The system should provide the page that "Ordered completed" and "Cook completed" can't rewrite(Readonly) | NF |
+| REQ-60 | 3 | The system should return to the initial screen when the user logs out. | F |
+| REQ-61 | 5 | The system shall deny the access to user's info when the user logs out. | NF |
+| REQ-62 | 3 | The system should check that the password length is more than 8 characters. | NF |
+| REQ-63 | 2 | The system should check that the password contains at least one number, upper/lower case and special character. | NF |
+| REQ-64 | 5 | The system should maintain an unique user's ID and email. | NF |
+| REQ-65 | 3 | The system should provide user info page. | F |
+| REQ-66 | 1 | The system should get the password when the user try to enter user info page. | NF |
+| REQ-67 | 4 | The system should allow password mistakes up to 5 times. | NF |
+| REQ-68 | 4 | The system shall encrypt and store orderer pw. | NF |
+| REQ-69 | 5 | The system shall provide the page that display status of order("ordered completed", "cook completed"). | F |
+| REQ-70 | 2 | The system should provide the page that "ordered completed" and "cook completed" can't rewrite(Readonly). | NF |
 
 1 는 없어도 지장없음, 유저의 편의성만을 따짐
 2 는 추적은 가능함
