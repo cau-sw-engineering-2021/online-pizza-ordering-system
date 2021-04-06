@@ -1,20 +1,16 @@
 ## UseCase
 
-UC1 : SignUp
+UC1 : Select pizza
 
-UC2 : Select pizza
+UC2 : Add menus to cart
 
-UC3 : Add menus to cart
+UC3 : Modify menus in cart
 
-UC4 : Order menus
+UC3 : Order menus
 
-UC5 : Watch order status
+UC4 : Watch order status
 
-UC6 : Change or cancle order
-
-UC7 : login
-
-UC8 : logout
+UC5 : Change or cancle order
 
 
 
