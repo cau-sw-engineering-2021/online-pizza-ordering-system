@@ -42,6 +42,20 @@
 | REQ-36 | 3 | The system shall allow viewing pizza sales list and revenue on "sales breakdown"| F |
 | REQ-37 | 3 | The system shall allow viewing, adding, editing, deleting members on "member management". | F |
 | REQ-38 | 2 | The system shall allow adding privileged-member only on "member management. | NF |
+| 시 | 스 | 템 | |
+| REQ-39 | 3 | The system should allow an orderer to create an user account by receiving phone number, address, email, id, password, name. | F |
+| REQ-40 | 3 | The system shall provide a signup page. | NF |
+| REQ-41 | 2 | The system should provide a page to find ID using its email. | NF |
+| REQ-42 | 2 | The system should provide a page to send resetted PW using its ID and email. | NF |
+| REQ-43 | 1 | The system should redirect to management page when logged as manager. | F |
+| REQ-44 | 1 | The system should redirect to order status page when logged as clerk. | F |
+| REQ-45 | 2 | The system shall allow users to be granted only when they have appropriate authorities. | NF |
+| REQ-46 | 4 | The system shall allow an orderer to track status("ordered", "canceled", "order accepted", "order rejected", "cook completed", "served", "delivering", "delivery completed", "invalid") by using the Order ID. | F |
+| REQ-47 | 3 | The system should get Manager id and password from configuration file. | F |
+| REQ-48 | 1 | The system should maintain only one managmer account. | NF |
+| REQ-49 | 2 | The system shall maintain a history log of all orders. | NF |
+| REQ-50 | 3 | The system shall be shut down if essential information is absent before starting the system. | NF |
+| REQ-51 | 3 | The system should restrict to create orderer account via signup. | NF |
 | 3 | 직 | 원 |  |
 | REQ-52 | 4 | The system shall allow an orderer to order new pizza both as a member or non-member. | NF |
 | REQ-53 | 5 | The system shall allow an orderer to see status("ordered" as "cooking", "cook completed") on a simple page. | F |
