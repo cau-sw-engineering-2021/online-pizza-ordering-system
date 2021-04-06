@@ -31,6 +31,17 @@
 | REQ-26 | 1 | The system should allow an orderer to adjust the quantity of pizza in the cart| |
 | REQ-27 | 4 | The system should shows all items in the cart. | |
 | REQ-28| 3 | The System should allow an orderer to move to the order decision stage only if there is more than one in orderer's cart. | NF |
+| 2 | 매 | 니 | 저 |
+| REQ-29 | 1 | The system should allow selecting view options(by arbitrary period, by pizza) on "sales breakdown". | F |
+| REQ-30 | 5 | The system shall allow access to admin page where "open switch", "menu management", "sales breakdown", "member management" are shown through manager account. | F |
+| REQ-31 | 5 | The system shall allow manager to open/close store by switch. | F |
+| REQ-32 | 2 | The system shall display total menu list first on "menu management". | NF |
+| REQ-33 | 2 | The system shall display total member list first on "member management". | NF |
+| REQ-34 | 1 | The system should allow selecting view option(by role) of member list on "member management" | F |
+| REQ-35 | 3 | The system shall allow viewing, adding, editing, deleting pizza menus on "menu management" | F |
+| REQ-36 | 3 | The system shall allow viewing pizza sales list and revenue on "sales breakdown"| F |
+| REQ-37 | 3 | The system shall allow viewing, adding, editing, deleting members on "member management". | F |
+| REQ-38 | 2 | The system shall allow adding privileged-member only on "member management. | NF |
 | 3 | 직 | 원 |  |
 | REQ-52 | 4 | The system shall allow an orderer to order new pizza both as a member or non-member. | NF |
 | REQ-53 | 5 | The system shall allow an orderer to see status("ordered" as "cooking", "cook completed") on a simple page. | F |
