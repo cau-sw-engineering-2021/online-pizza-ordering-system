@@ -16,20 +16,20 @@
 | REQ-11 | 4 | The system shall allow an orderer to choose payment methods("online", "offline")| F |
 | REQ-12 | 4 | The system shall receive card number when an orderer selects "online payment" | F |
 | REQ-13 | 1 | The system should ask if an orderer wants to go to cart page. | NF |
-| REQ-14 | 3 | The system should allow an orderer to go to individual menu page of an item in the cart page. | |
-| REQ-15 | 3 | The system should allow an orderer to move from the menu page to the shopping cart page. | |
-| REQ-16 | 3 | The system should allow an orderer to move to order decision phase only from shopping cart page. | |
-| REQ-17 | 2 | The system should alert a notification saying, "If you are not logged in, you will proceed as a non-member.", before entering the order decision stage.| |
-| REQ-18 | 1 | The system maintains the contents of the cart that added when he or she is not a member, even if the user logs in| |
-| REQ-19 | 2 | The system should give an Order ID to the orderer when ordering is completed. | F |
+| REQ-14 | 3 | The system should allow an orderer to go to individual menu page of an item in the cart page. | NF |
+| REQ-15 | 3 | The system should allow an orderer to move from the menu page to the shopping cart page. | NF |
+| REQ-16 | 3 | The system should allow an orderer to move to order decision phase only from shopping cart page. | NF |
+| REQ-17 | 2 | The system should alert a notification saying, "If you are not logged in, you will proceed as a non-member.", before entering the order decision stage.| NF |
+| REQ-18 | 1 | The system maintains the contents of the cart that added when he or she is not a member, even if the user logs in| NF |
+| REQ-19 | 2 | The system should give an Order ID to the orderer when ordering is completed. | NF |
 | REQ-20 | 1 | The system shall allow orderers to check their own order list. | F |
 | REQ-21 | 5 | The system shall not accept orders outside of the opening hours | NF |
 | REQ-22 | 1 | The system should allow an orderer to change address before ordering. | F |
-| REQ-23 | 1 | The system should take address from stored user information in DB during the order decision phase, if orderer is logged in | |
+| REQ-23 | 1 | The system should take address from stored user information in DB during the order decision phase, if orderer is logged in | NF |
 | REQ-24 | 4 | The system shall allow an orderer to type address if "delivery" option choosen. | F |
 | REQ-25 | 1 | The system should allow an orderer to cancel or change the order before "order accepted". | F |
-| REQ-26 | 1 | The system should allow an orderer to adjust the quantity of pizza in the cart| |
-| REQ-27 | 4 | The system should shows all items in the cart. | |
+| REQ-26 | 1 | The system should allow an orderer to adjust the quantity of pizza in the cart| F |
+| REQ-27 | 4 | The system should shows all items in the cart. | NF |
 | REQ-28| 3 | The System should allow an orderer to move to the order decision stage only if there is more than one in orderer's cart. | NF |
 | 2 | 매 | 니 | 저 |
 | REQ-29 | 1 | The system should allow selecting view options(by arbitrary period, by pizza) on "sales breakdown". | F |
