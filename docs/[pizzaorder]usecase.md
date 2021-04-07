@@ -15,3 +15,32 @@ UC6 : View Order History
 UC7 : Cancel Order - include UC6
 
 UC8 - PayOnline
+
+
+
+
+#Frame
+
+---
+|Use Case - UC-# : | type |
+|---|---|
+|Related Requirements| type |
+|Initiating Actor| type |
+|Actor's Goal| type |
+|Participating Actors| type |
+|Preconditions| type |
+|PostConditions| type |  
+
+####Flow of Events for | Main Success Scenario
+
+| -> | 1. | type here |
+|---|---|---|
+| <- | 2. | type here |
+
+####Extends
+
+| 2.1 | -- | here |
+|---|---|---|
+| -- | 2.1.1 | type here |
+
+---
