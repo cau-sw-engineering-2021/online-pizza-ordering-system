@@ -4,17 +4,17 @@ UC1 : Add Menu To Cart
 
 UC2 : Manage Cart - generalize UC3, UC4
 
-UC3 : Edit Quantity of menu in cart
+UC3 : Edit Menu In Cart
 
 UC4 : Delete Menu From Cart
 
-UC5 : Order - extends(delivery option)
+UC5 : Order
 
 UC6 : View Order History
 
 UC7 : Cancel Order - include UC6
 
-UC8 - PayOnline
+UC8 : PayOnline
 
 
 ---
