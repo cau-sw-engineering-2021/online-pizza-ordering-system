@@ -17,11 +17,14 @@ UC7 : Cancel Order - include UC6
 UC8 - PayOnline
 
 
+---
 
+| Actor | Actor's Goal(what the actor intends to accomplish) | Use Case name |
+|---|---|---|
+|  |  |  |
+---
 
 #Frame
-
----
 |Use Case - UC-# : | type |
 |---|---|
 |Related Requirements| type |
