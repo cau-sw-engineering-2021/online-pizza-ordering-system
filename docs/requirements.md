@@ -4,9 +4,9 @@
 | - | - | - | - |
 | 1 | orderer | |
 | REQ-1 | 1 | The system should show menus of pizzas in the first page | NF |
-| REQ-2 | 3 | The system shall show size, price by size, name with menus. | NF |
+| REQ-2 | 3 | The system shall show size, price by size, name with menus. | F |
 | REQ-3 | 1 | The system should display "go to cart", "login"/"logout" buttons on every pages | NF |
-| REQ-4 | 5 | The system shall provide allergy information for every menu. | NF |
+| REQ-4 | 5 | The system shall provide allergy information for every menu. | F |
 | REQ-5 | 5 | The system shall allow an orderer to choose toppings and size option when an item of pizza menu is clicked. | F |
 | REQ-6 | 3 | The system should allow orderer to type additional comments before completing order. | F |
 | REQ-7 | 5 | The system shall be able to put items in the cart with options(size, topping, side menu, ...). | F |
