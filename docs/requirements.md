@@ -70,7 +70,7 @@
 | REQ-63 | 2 | The system should check that the password contains at least one number, upper/lower case and special character. | NF |
 | REQ-64 | 5 | The system should maintain an unique user's ID and email. | NF |
 | REQ-65 | 3 | The system should provide user info page. | F |
-| REQ-66 | 1 | The system should get the password when the user try to enter user info page. | NF |
+| REQ-66 | 1 | The system should get the password when the user try to enter user info page. | F |
 | REQ-67 | 4 | The system should allow password mistakes up to 5 times. | NF |
 | REQ-68 | 4 | The system shall encrypt and store orderer pw. | NF |
 | REQ-69 | 2 | The system should provide the page that "ordered completed" and "cook completed" can't rewrite(Readonly). | NF |
