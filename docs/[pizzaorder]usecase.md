@@ -1,19 +1,17 @@
 ## UseCase
 
-UC1 : Select pizza
+UC1 : Add Menu To Cart
 
-UC2 : Add menus to cart
+UC2 : Manage Cart - generalize UC3, UC4
 
-UC3 : Modify menus in cart
+UC3 : Edit Quantity of menu in cart
 
-UC3 : Order menus
+UC4 : Delete Menu From Cart
 
-UC4 : Watch order status
+UC5 : Order - extends(delivery option)
 
-UC5 : Change or cancle order
+UC6 : View Order History
 
+UC7 : Cancel Order - include UC6
 
-
-
-
-
+UC8 - PayOnline
