@@ -17,7 +17,6 @@
 | REQ-12 | 4 | The system shall receive card number when an orderer selects "online payment" | F |
 | REQ-13 | 1 | The system should ask if an orderer wants to go to cart page. | NF |
 | REQ-14 | 3 | The system should allow an orderer to go to individual menu page of an item in the cart page. | NF |
-| REQ-15 | 3 | The system should allow an orderer to move from the menu page to the shopping cart page. | NF |
 | REQ-16 | 3 | The system should allow an orderer to move to order decision phase only from shopping cart page. | NF |
 | REQ-17 | 2 | The system should alert a notification saying, "If you are not logged in, you will proceed as a non-member.", before entering the order decision stage.| NF |
 | REQ-18 | 1 | The system maintains the contents of the cart that added when he or she is not a member, even if the user logs in| NF |
