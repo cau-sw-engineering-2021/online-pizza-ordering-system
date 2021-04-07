@@ -1,29 +1,46 @@
 ## UseCase
 
-UC1: OrderStatus page includes UC7
+C-UC1: Accept order
 
-UC2: Update status extends UC3~UC6
+C-UC2: Complete Cook
 
-UC3: Updated by cashier
+C-UC3: Handle emergency
 
-UC4: Updated by cook
+C-UC4: Start Delivery
 
-UC5: Updated by server
+C-UC5: Complete Delivery
 
-UC6: Updated by delivery man
+C-UC6: Track order
 
-UC7: AuthenticateUser
+C-UC7: Logout
 
-UC8: History log includes UC7
+C-UC8: Validate privileges
+
+C-UC9: Validate password
+
+C-UC10: Validate user info
+
+C-UC11: Display user's info page
+
+C-UC12: Editing UserInfo
+
+C-UC13: Confirm password
+
+C-UC14: Display Orders
 
 | Actor | Actor's Goal(what the actor intends to accomplish) | Use Case name |
 | - | - | - |
-| Orderer | To see stautus of orders | UC1(OrderStatus page) |
-| Orderer | To see history log of past orders | UC8(History log) |
-| cashier | To change order's status from "ordered" to ("order accepted" or "order rejected") | UC3(Updated by cashier) |
-| cashier | To change order status to "invalid" in an emergency | UC3(Updated by cashier) |
-| cook | To change order's status from "order accepted" to "cook completed" | UC4(Updated by cook) |
-| server | To change order's status from "cook completed" to "served" | UC5(Updated by server) | 
-| delivery man | To change order's status from "cook completed" to "delivering" | UC6(Updated by delivery man |
-| delivery man | To change order's status from "delivering" to "delivery completed" | UC6(Updated by delivery man |
-| Manager | To see history log of all orders | UC8(History log) | 
+| Clerk |  | C-UC1 |
+| Clerk |  | C-UC2 |
+| Clerk |  | C-UC3 |
+| Delivery man |  | C-UC4 |
+| Delivery man |  | C-UC5 |
+| Order Tracket |  | C-UC6 |
+| Orderer |  | C-UC7 |
+| Orderer |  | C-UC8 |
+| Orderer |  | C-UC9 |
+| Orderer |  | C-UC10 |
+| Orderer |  | C-UC11 |
+| Orderer |  | C-UC12 |
+| Authorizer |  | C-UC13 |
+| Screen |  | C-UC14 |
