@@ -16,31 +16,22 @@ C-UC7: Logout
 
 C-UC8: Validate privileges
 
-C-UC9: Validate password
+C-UC9: Sign up
 
-C-UC10: Validate user info
+C-UC10: Display user's info page
 
-C-UC11: Display user's info page
-
-C-UC12: Editing UserInfo
-
-C-UC13: Confirm password
-
-C-UC14: Display Orders
+C-UC11: Display Orders
 
 | Actor | Actor's Goal(what the actor intends to accomplish) | Use Case name |
 | - | - | - |
-| Clerk |  | C-UC1 |
-| Clerk |  | C-UC2 |
-| Clerk |  | C-UC3 |
-| Delivery man |  | C-UC4 |
-| Delivery man |  | C-UC5 |
-| Order Tracket |  | C-UC6 |
-| Orderer |  | C-UC7 |
-| Orderer |  | C-UC8 |
-| Orderer |  | C-UC9 |
-| Orderer |  | C-UC10 |
-| Orderer |  | C-UC11 |
-| Orderer |  | C-UC12 |
-| Authorizer |  | C-UC13 |
-| Screen |  | C-UC14 |
+| Clerk | Clerk decides whether receiving order or not. | C-UC1 |
+| Clerk | Clerk changes the status of order from “order accepted” to “cook completed”. | C-UC2 |
+| Clerk | In emergency senario, clerk refuses the order. | C-UC3 |
+| Delivery man | After “cook completed”, delivery man receives it and start delivery or serving. | C-UC4 |
+| Delivery man | When delivery is completed, delivery man changes the status from ”delivering” to “delivery completed”. | C-UC5 |
+| Order Tracker | Older Tracker keeps updating the last status of order. | C-UC6 |
+| Orderer | Remove user’s data from the device. Or Prepare to login with another user. | C-UC7 |
+| Orderer | The orderer wants to access without privileges. The authorizer wants to block the orderer. | C-UC8 |
+| Orderer | Signup the member. | C-UC9 |
+| Orderer | Orderer wants to look user info page. | C-UC10 |
+| Screen | Display order list with each condition. | C-UC11 |
