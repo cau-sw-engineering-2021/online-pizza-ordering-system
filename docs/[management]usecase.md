@@ -33,15 +33,16 @@ UC13: DisplayByPeriod
 | Actor | Actor's Goal(what the actor intends to accomplish) | Use Case name |
 | - | - | - |
 | Users | To check whether the user has right authorities for the system. | C-UC2 |
-| Manager | todo | C-UC3 |
-| Manager | todo | C-UC4 |
-| Manager | todo | C-UC3 |
-| Manager | todo | C-UC4 |
-| Manager | todo | C-UC5 |
-| Manager | todo | C-UC6 |
-| Users | To check whether the user has right authorities for the system | C-UC7 |
-| Manager | To add a new employee’s account who has particular authorities for the system | C-UC8 |
-| Manager | To edit an user’s information or To endow privilege or role of the user | C-UC9 |
-| Manager | Orderer wants to look user info page. | C-UC10 |
-| Manager | To delete a User account | C-UC11 |
-| Users | To use an affected(added, editted, removed) account | C-UC8~C-UC11 |
+| Manager | To manage menus, add/remove/edit list | C-UC3 |
+| Manager | To register new menu to menu list | C-UC4 |
+| Manager | To edit data of menu item | C-UC5 |
+| Manager | To delete items in menu list | C-UC6 |
+| Manager | To add a new employee’s account who has particular authorities for the system | C-UC7 |
+| Manager | To edit an user’s information or To endow privilege or role of the user | C-UC8 |
+| Manager | Orderer wants to look user info page. | C-UC9 |
+| Manager | To delete a User account | C-UC10 |
+| Users | To use an affected(added, editted, removed) account | C-UC7~C-UC10 |
+| Manager | To view sales of the store by some options. | C-UC11 |
+| Manager | To view sales list of particular pizza. | C-UC12 |
+| Manager | To view total sales list by period | C-UC13 |
+| Manager | To open/close store by switch | C-UC14 |
