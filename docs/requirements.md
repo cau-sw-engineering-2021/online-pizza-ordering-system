@@ -3,9 +3,9 @@
 | Identifier | Priority | Requirement | Function/Non-Function |
 | - | - | - | - |
 | 1 | orderer | |
-| REQ-1 | 1 | The system should show menus of pizzas in the first page | NF |
+| REQ-1 | 1 | The system should show menus of pizzas in the first page | F |
 | REQ-2 | 3 | The system shall show size, price by size, name with menus. | F |
-| REQ-3 | 1 | The system should display "go to cart", "login"/"logout" buttons on every pages | NF |
+| REQ-3 | 1 | The system should display "go to cart", "login"/"logout" buttons on every pages | F |
 | REQ-4 | 5 | The system shall provide allergy information for every menu. | F |
 | REQ-5 | 5 | The system shall allow an orderer to choose toppings and size option when an item of pizza menu is clicked. | F |
 | REQ-6 | 3 | The system should allow orderer to type additional comments before completing order. | F |
@@ -15,27 +15,28 @@
 | REQ-10 | 4 | The system shall allow an orderer to choose receiving options("take out", "delivery", "offline"). | F |
 | REQ-11 | 4 | The system shall allow an orderer to choose payment methods("online", "offline")| F |
 | REQ-12 | 4 | The system shall receive card number when an orderer selects "online payment" | F |
-| REQ-13 | 1 | The system should ask if an orderer wants to go to cart page after adding item to cart | NF |
-| REQ-14 | 3 | The system should allow an orderer to go to individual menu page of an item in the cart page. | NF |
-| REQ-16 | 3 | The system should allow an orderer to move to order decision phase only from shopping cart page. | NF |
+| REQ-13 | 1 | The system should ask if an orderer wants to go to cart page after adding item to cart | F |
+| REQ-14 | 3 | Todo... | F |
+| REQ-15 | 3 | The system should allow an orderer to go to individual menu page of an item in the cart page. | F |
+| REQ-16 | 3 | The system should allow an orderer to move to order decision phase only from shopping cart page. | F |
 | REQ-17 | 2 | The system should alert a notification saying, "If you are not logged in, you will proceed as a non-member.", before entering the order decision stage.| NF |
-| REQ-18 | 1 | The system maintains the contents of the cart that added when he or she is not a member, even if the user logs in| NF |
-| REQ-19 | 2 | The system should give an Order ID to the orderer when ordering is completed. | NF |
+| REQ-18 | 1 | The system maintains the contents of the cart that added when he or she is not a member, even if the user logs in| F |
+| REQ-19 | 2 | The system should give an Order ID to the orderer when ordering is completed. | F |
 | REQ-20 | 1 | The system shall allow orderers to check their own order list. | F |
 | REQ-21 | 5 | The system shall not accept orders outside of the opening hours | NF |
 | REQ-22 | 1 | The system should allow an orderer to change address before ordering. | F |
-| REQ-23 | 1 | The system should take address from stored user information in DB during the order decision phase, if orderer is logged in | NF |
+| REQ-23 | 1 | The system should take address from stored user information in DB during the order decision phase, if orderer is logged in | F |
 | REQ-24 | 4 | The system shall allow an orderer to type address if "delivery" option choosen. | F |
 | REQ-25 | 1 | The system should allow an orderer to cancel or change the order before "order accepted". | F |
 | REQ-26 | 1 | The system should allow an orderer to adjust the quantity of pizza in the cart| F |
-| REQ-27 | 4 | The system should shows all items in the cart. | NF |
+| REQ-27 | 4 | The system should shows all items in the cart. | F |
 | REQ-28| 3 | The System should allow an orderer to move to the order decision stage only if there is more than one in orderer's cart. | NF |
 | 2 | 매 | 니 | 저 |
 | REQ-29 | 1 | The system should allow selecting view options(by arbitrary period, by pizza) on "sales breakdown". | F |
 | REQ-30 | 5 | The system shall allow access to admin page where "open switch", "menu management", "sales breakdown", "member management" are shown through manager account. | F |
 | REQ-31 | 5 | The system shall allow manager to open/close store by switch. | F |
-| REQ-32 | 2 | The system shall display total menu list first on "menu management". | NF |
-| REQ-33 | 2 | The system shall display total member list first on "member management". | NF |
+| REQ-32 | 2 | The system shall display total menu list first on "menu management". | F |
+| REQ-33 | 2 | The system shall display total member list first on "member management". | F |
 | REQ-34 | 1 | The system should allow selecting view option(by role) of member list on "member management" | F |
 | REQ-35 | 3 | The system shall allow viewing, adding, editing, deleting pizza menus on "menu management" | F |
 | REQ-36 | 3 | The system shall allow viewing pizza sales list and revenue on "sales breakdown"| F |
@@ -50,7 +51,6 @@
 | REQ-44 | 1 | The system should redirect to order status page when logged as clerk. | F |
 | REQ-45 | 2 | The system shall allow users to be granted only when they have appropriate authorities. | NF |
 | REQ-46 | 4 | The system shall allow an orderer to track status("ordered", "canceled", "order accepted", "order rejected", "cook completed", "served", "delivering", "delivery completed", "invalid") by using the Order ID. | F |
-| REQ-47 | 3 | The system should get Manager id and password from configuration file. | NF |
 | REQ-48 | 1 | The system should maintain only one managmer account. | NF |
 | REQ-49 | 2 | The system shall maintain a history log of all orders. | NF |
 | REQ-50 | 3 | The system shall be shut down if essential information is absent before starting the system. | NF |
