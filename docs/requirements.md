@@ -20,7 +20,7 @@
 | REQ-15 | 3 | The system should allow an orderer to move to order decision | F |
 | REQ-16 | 3 | The system should allow an orderer to move to order decision phase only from shopping cart page. | F |
 | REQ-17 | 2 | The system should alert a notification saying, "If you are not logged in, you will proceed as a non-member.", before entering the order decision stage.| NF |
-| REQ-18 | 1 | The system maintains the contents of the cart that added when he or she is not a member, even if the user logs in| F |
+| REQ-18 | 1 | The system should append items added before the orderer logs in to the orderer's cart | F |
 | REQ-19 | 2 | The system should give an Order ID to the orderer when ordering is completed. | F |
 | REQ-20 | 1 | The system shall allow orderers to check their own order list. | F |
 | REQ-21 | 5 | The system shall not accept orders outside of the opening hours | NF |
