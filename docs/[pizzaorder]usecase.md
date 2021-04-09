@@ -1,20 +1,20 @@
 ## UseCase
 
-UC1 : Add Menu To Cart
+A-UC1 : Add Menu To Cart
 
-UC2 : Manage Cart - generalize UC3, UC4
+A-UC2 : Manage Cart - generalize UC3, UC4
 
-UC3 : Edit Menu In Cart
+A-UC3 : Modify Cart Item Quantity
 
-UC4 : Delete Menu From Cart
+A-UC4 : Remove Cart Item
 
-UC5 : Order
+A-UC5 : Order
 
-UC6 : View Order History
+A-UC6 : View Order History
 
-UC7 : Cancel Order - include UC6
+A-UC7 : Cancel Order - include UC6
 
-UC8 : PayOnline
+A-UC8 : Pay Online
 
 
 ---
@@ -22,6 +22,7 @@ UC8 : PayOnline
 | Actor | Actor's Goal(what the actor intends to accomplish) | Use Case name |
 |---|---|---|
 | Orderer |  |  |
+| Cart | | |
 ---
 
 ### UC-5 - order
