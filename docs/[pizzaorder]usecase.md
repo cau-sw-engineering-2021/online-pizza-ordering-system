@@ -23,7 +23,8 @@ UC8 : PayOnline
 |---|---|---|
 | Orderer |  |  |
 ---
- ###UC-5 - order
+
+### UC-5 - order
 |Use Case - UC-5 : | Order |
 |---|---|
 |Related Requirements| Include “Add to cart”, REQ-6, REQ-9, REQ10, REQ-11,REQ-12, REQ-17, REQ-18, REQ-19 |
@@ -33,7 +34,7 @@ UC8 : PayOnline
 |Preconditions| There must be pizza in cart |
 |PostConditions| Orderer get the order id |  
 
-####Flow of Events for | Main Success Scenario
+#### Flow of Events for | Main Success Scenario
 
 | -> | 1. | User move to order page from cart page |
 |---|---|---|
@@ -43,14 +44,14 @@ UC8 : PayOnline
 | -> | 5. | User type payment information (REQ-11, REQ-12) |
 | -> | 6. | Orderer get order Id. (REQ-19) |
 
-####Extends
+#### Extends
 
 | 3.1 | -- | If User select delivery option |
 |---|---|---|
 | -- | 3.1.1 | User type address if not logged in, also can change |
 
 
-#Frame
+# Frame
 |Use Case - UC-# : | type |
 |---|---|
 |Related Requirements| type |
@@ -60,13 +61,13 @@ UC8 : PayOnline
 |Preconditions| type |
 |PostConditions| type |  
 
-####Flow of Events for | Main Success Scenario
+#### Flow of Events for | Main Success Scenario
 
 | -> | 1. | type here |
 |---|---|---|
 | <- | 2. | type here |
 
-####Extends
+#### Extends
 
 | 2.1 | -- | here |
 |---|---|---|
