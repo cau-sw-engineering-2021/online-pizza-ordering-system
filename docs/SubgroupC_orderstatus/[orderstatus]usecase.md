@@ -14,13 +14,15 @@ C-UC6: Track order
 
 C-UC7: Logout
 
-C-UC8: Validate privileges
+C-UC8: Authenticate User
 
 C-UC9: Sign up
 
 C-UC10: Display user's info page
 
 C-UC11: Display Orders
+
+c-UC12: Login User
 
 | Actor | Actor's Goal(what the actor intends to accomplish) | Use Case name |
 | - | - | - |
@@ -35,3 +37,4 @@ C-UC11: Display Orders
 | Orderer | Signup the member. | C-UC9 |
 | Orderer | Orderer wants to look user info page. | C-UC10 |
 | Screen | Display order list with each condition. | C-UC11 |
+| User | The user wants to authenticate by the system. | C-UC12
