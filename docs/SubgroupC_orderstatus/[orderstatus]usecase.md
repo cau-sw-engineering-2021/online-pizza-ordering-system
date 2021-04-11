@@ -33,8 +33,8 @@ c-UC12: Login User
 | Delivery man | When delivery is completed, delivery man changes the status from ”delivering” to “delivery completed”. | C-UC5 |
 | Order Tracker | Older Tracker keeps updating the last status of order. | C-UC6 |
 | Orderer | Remove user’s data from the device. Or Prepare to login with another user. | C-UC7 |
-| Orderer | The orderer wants to access without privileges. The authorizer wants to block the orderer. | C-UC8 |
+| Orderer | The orderer wants to access without privileges. The authenticater wants to block the orderer. | C-UC8 |
 | Orderer | Signup the member. | C-UC9 |
 | Orderer | Orderer wants to look user info page. | C-UC10 |
 | Screen | Display order list with each condition. | C-UC11 |
-| User | The user wants to authenticate by the system. | C-UC12
+| User | The user wants to authenticate by the system. | C-UC12 |
