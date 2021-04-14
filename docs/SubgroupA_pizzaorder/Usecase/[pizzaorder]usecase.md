@@ -21,10 +21,10 @@ A-UC8 : Pay Online
 
 | Actor | Actor's Goal(what the actor intends to accomplish) | Use Case name |
 |---|---|---|
-| Orderer |  | A-UC1 |
-| Orderer | | A-UC2 |
-| Orderer | | A-UC3 |
-| Orderer | | A-UC4 |
+| Orderer | To add a menu item with options to cart | A-UC1 |
+| Orderer | To view and edit/remove items in the cart | A-UC2 |
+| Orderer | Modify the quantity of the item in cart | A-UC3 |
+| Orderer | Remove items in the cart | A-UC4 |
 | Orderer | Order pizza | A-UC5 |
 | Orderer | See the own order history | A-UC6 |
 | Orderer | See the detail of one order  | A-UC7 |
