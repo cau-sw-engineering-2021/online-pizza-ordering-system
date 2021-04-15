@@ -1,0 +1,4 @@
+- 산출물 merge 작성을 위한 합치기 작업
+- Onedrive 공유문서로 공유하여 마무리 수정 작업
+- 해야할 todo는 취합하녀 git issue로 관리
+- mockup은 23,24일에 
