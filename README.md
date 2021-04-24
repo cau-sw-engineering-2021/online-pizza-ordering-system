@@ -30,3 +30,10 @@ Online Pizza Ordering System에서는 개인피자 가게에서 고객들이 보
 웹사이트에 접속하여 별도로 부여된 관리자 계정 로그인을 통해 관리자용 페이지로 접속이 할 수 있어야 합니다. 관리자 페이지에는 "메뉴 관리", "매출 내역","회원 조회" 메뉴가 있어야 하고, 관리자가 "메뉴 관리"에서 피자메뉴들을 생성, 조회, 수정, 삭제 할 수 있도록 해야 합니다. "매출 내역"에서는 피자 주문량과 매출을 확인할 수 있어야 하고, "회원 조회" 메뉴에서는 사용자 목록을 확인하고 권한을 설정이 가능해야 합니다.
 
 주문이 들어온 경우, 주문 상태는 별도의 주문 현황 페이지를 통해 관리되어야 합니다. 오프라인 전용 메뉴에서는 "주문 접수", "조리중", "수령 가능"의 세 가지로 탭을 나누어 오프라인 매장 이용 고객들이 현황을 파악할 수 있어야 합니다. 온라인 전용 메뉴에서는 사용자가 주문번호를 검색하여 "주문 접수", "조리중", "배달중", "배달 완료", "수령 가능"의 현황 확인이 가능해야 합니다. 이러한 주문 현황의 업데이트를 위한 수정 전용 메뉴를 지원해야 하고, 수정 권한을 가진 사용자만 접근할 수 있어야 합니다. 이 메뉴에서는 주문 리스트가 보여지며 주문 상태를 수정할 수 있어야 합니다.
+
+# The 1st Checkpoint
+- [Output Directory](https://github.com/cau-sw-engineering-2021/online-pizza-ordering-system/tree/master/docs/The1stCheckpointOutput)
+- [Requirements](https://github.com/cau-sw-engineering-2021/online-pizza-ordering-system/blob/master/docs/The1stCheckpointOutput/Requirements.pdf)
+- [Usecasemodel](https://github.com/cau-sw-engineering-2021/online-pizza-ordering-system/blob/master/docs/The1stCheckpointOutput/Usecasemodel.pdf)
+- [Domainmodel](https://github.com/cau-sw-engineering-2021/online-pizza-ordering-system/blob/master/docs/The1stCheckpointOutput/Domainmodel.pdf)
+- [UI Mockup](https://github.com/cau-sw-engineering-2021/online-pizza-ordering-system/blob/master/docs/The1stCheckpointOutput/UI%20mockup.pdf)
