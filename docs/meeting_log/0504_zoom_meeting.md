@@ -14,7 +14,7 @@ B-UC3:AddPizza
 
 B-UC9:DeleteUser
 
-B-UC9:DeleteUser
+B-UC12: DisplayByPeriod
 
 C-UC1: Accept order
 
