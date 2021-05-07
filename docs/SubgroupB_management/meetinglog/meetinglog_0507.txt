@@ -1,0 +1,27 @@
+[정종민]
+1. link 클릭하고, list 받아오느거를 앞에다가 추가
+2. var1: authenticate user가 request page를 하냐, authenticate()보내주고 controller가 request page
+3. var2: refresh를 operator가 하냐 controller가 하냐 
+4. Controller가 Refreshrequest를 만들고 Pagemaker한테 요청하면 다시 리스트가져와서 만들기("force refresh","redirect://어쩌구"를 바로 반환)
+5. onclick자동말고 interactive하게 manager가 요청하는거로 만들기
+
+r:=getRole(ui)
+
+1. K타입은 앵간하면 뭐 호출하지말자
+r:=getRole(ui)처럼 사용하고, 이걸 authenticator가 쓸거냐 아니면 RoleService가 쓸거냐에 따라 var
+RoleService가 하는게 맞는 것 같다(용준), AUthenticator는 외부자니까 정보를 긁어오는 용도
+
+2. RoleChecker가 바로 message를 리턴하느게 맞느냐, Controller한테 t/f하고 Controller가 최종적으로 msg를 리턴하는게 맞느냐
+-> 최종적으로는 controller가하게하는게 맞는듯
+
+--------------------------------------------------------------------------
+[정용준]
+1. ManageMenuOpertaor가 menulist를 요청해서 받아오는게 맞냐, pagemaker가 menulist를 요청해서 받아오는게 맞냐
+2. Managementuoperator로 하는게 맞냐 Addmenu operator로하는게 맞냐
+3. JSON은 빼는게 맞을듯
+4. pagemaker가 호출하는 메소드
+5. 밑에서 다시 렌더링하지말고("force refresh","redirect://어쩌구"를 바로 반환)
+
+1. click confirm button이걸 워딩을 filter가 들어가게 고치고, object에도 button이 역할을하게 하나 추가
+2. pagemaker의 responsibility
+3. 초기작업까지 Operator가 하냐, 나중거만 Operator가하냐
