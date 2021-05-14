@@ -37,3 +37,9 @@ Online Pizza Ordering System에서는 개인피자 가게에서 고객들이 보
 - [Usecasemodel](https://github.com/cau-sw-engineering-2021/online-pizza-ordering-system/blob/master/docs/The1stCheckpointOutput/Usecasemodel.pdf)
 - [Domainmodel](https://github.com/cau-sw-engineering-2021/online-pizza-ordering-system/blob/master/docs/The1stCheckpointOutput/Domainmodel.pdf)
 - [UI Mockup](https://github.com/cau-sw-engineering-2021/online-pizza-ordering-system/blob/master/docs/The1stCheckpointOutput/UI%20mockup.pdf)
+
+# The 2nd Checkpoint
+- [Output Directory](https://github.com/cau-sw-engineering-2021/online-pizza-ordering-system/tree/master/docs/The2ndCheckpointOutput)
+- [2nd Checkpoint 전체 결과 통합본 pdf](https://github.com/cau-sw-engineering-2021/online-pizza-ordering-system/blob/master/docs/The2ndCheckpointOutput/The2ndCheckpoint.pdf)
+- [Object Sequence Diagram Directory](https://github.com/cau-sw-engineering-2021/online-pizza-ordering-system/tree/master/docs/The2ndCheckpointOutput/ObjectSequenceDiagram)
+- [Class Diagram Directory](https://github.com/cau-sw-engineering-2021/online-pizza-ordering-system/tree/master/docs/The2ndCheckpointOutput/ClassDiagram)
