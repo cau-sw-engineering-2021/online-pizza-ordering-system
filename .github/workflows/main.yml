@@ -23,6 +23,15 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
+
+    - name: Setup MySQL
+      uses: samin/mysql-action@v1
+      with:
+        character set server: 'utf8'
+        mysql database: 'pizzaorder'
+        mysql user: 'pizza'
+        mysql password: 'toor'
+
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
       shell: bash
@@ -30,15 +39,12 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew clean build
 
-    - name: Copy Jar
-      run: cp ./build/libs/*.jar ./deploy/
-
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@v2.1.5
       env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           ARGS: "--delete"
-          SOURCE: "/build/libs/*.jar"
+          SOURCE: "build/libs"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
