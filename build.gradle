@@ -31,30 +31,45 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-def webappDir = "$projectDir/webapp"
-node {
-    version = '14.16.1'
-    workDir = file("${project.buildDir}/nodejs")
-    npmWorkDir=file("${project.buildDir}/npm")
+def webappDir = "$projectDir/src/main/webapp"
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ["$webappDir/build", "$projectDir/src/main/resources"]
+        }
+    }
 }
 
-task appNpmInstall(type: NpmTask) {
-    workingDir = file(webappDir)
-    args = ["install"]
+processResources {
+    dependsOn "buildReact"
 }
 
-task bundle(type: NpmTask, dependsOn: 'appNpmInstall') {
-    workingDir = file(webappDir)
-    args = ['run', 'build']
+task buildReact(type: Exec) {
+    dependsOn "installReact"
+    workingDir "$webappDir"
+    inputs.dir "$webappDir"
+    group = BasePlugin.BUILD_GROUP
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        commandLine "npm.cmd", "run-script", "build"
+    } else {
+        commandLine "npm", "run-script", "build"
+    }
 }
 
-task copyWebApp(type: Copy) {
-    from "webapp/build"
-    into 'build/resources/main/static/.'
+task installReact(type: Exec) {
+    workingDir "$webappDir"
+    inputs.dir "$webappDir"
+    group = BasePlugin.BUILD_GROUP
+    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        commandLine "npm.cmd", "audit", "fix"
+            commandLine 'npm.cmd', 'install'
+    } else {
+        commandLine "npm", "audit", "fix"
+            commandLine 'npm', 'install'
+    }
 }
 
-copyWebApp.dependsOn bundle
-compileJava.dependsOn copyWebApp
 
 test {
     useJUnitPlatform()
