@@ -6,6 +6,9 @@ import com.example.pizzaordering.repository.UserRepository;
 import com.example.pizzaordering.vo.Role;
 import com.example.pizzaordering.vo.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
@@ -52,5 +55,36 @@ public class UserService {
             return null;
         else
             return userRepository.findUserByNickname(userId);
+    }
+
+    public List<String> getRoleNames() {
+        List<String> retval = null;
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication()
+            .getPrincipal();
+        if (principal instanceof UserDetails) {
+            UserDetails detail = (UserDetails)principal;
+            List<String> roles = new ArrayList<String>();
+
+            for (GrantedAuthority authority : detail.getAuthorities()) {
+                roles.add(authority.getAuthority());
+            }
+
+            retval = roles;
+        }
+
+        return retval;
+    }
+
+    public String getUsername() {
+        String retval = "anonymous user";
+        Object principal = SecurityContextHolder.getContext().getAuthentication()
+            .getPrincipal();
+        if (principal instanceof UserDetails) {
+            UserDetails detail = (UserDetails)principal;
+            retval = detail.getUsername();
+        }
+
+        return retval;
     }
 }
