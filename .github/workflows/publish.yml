@@ -1,6 +1,6 @@
-name: build test
+name: publish
 
-on: [push]
+on:[]
 
 jobs:
   build:
