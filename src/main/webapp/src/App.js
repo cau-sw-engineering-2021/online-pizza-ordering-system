@@ -1,14 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
-import {login, ping} from './util';
+import {login, ping, fetchMenuList} from './util';
 
 function App() {
+  /* Login Test */
   login({
     id: "lmu",
     password: "test",
   }).then(({jwt}) => {
     ping(jwt).then(console.log);
   });
+
+  /* Menu Test */
+  fetchMenuList().then(console.log);
   return (
     <div className="App">
       <header className="App-header">
