@@ -1,6 +1,6 @@
 name: publish
 
-on:[]
+on: [release]
 
 jobs:
   build:
@@ -39,14 +39,26 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew clean build
 
-      #- name: Deploy to Server
-      #uses: easingthemes/ssh-deploy@v2.1.5
-      #env:
-        #SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-        #ARGS: "--delete"
-        #SOURCE: "build/libs"
-        #REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-        #REMOTE_USER: ${{ secrets.REMOTE_USER }}
-        #REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
-        #TARGET: ${{ secrets.REMOTE_TARGET }}
-        #EXCLUDE: "/dist/, /node_modules/"
+    - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@v2.1.5
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+        ARGS: "--delete"
+        SOURCE: "build/libs"
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+        REMOTE_USER: ${{ secrets.REMOTE_USER }}
+        REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+        TARGET: ${{ secrets.REMOTE_TARGET }}
+        EXCLUDE: "/dist/, /node_modules/"
+
+    - name: Run on Server
+      uses: appleboy/ssh-action@master
+      env:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        key: ${{ secrets.SERVER_SSH_KEY }}
+        port: ${{ secrets.REMOTE_PORT }}
+        sciprt: |
+          pkill -f 'java -jar pizzaordering-0.0.1-SNAPSHOT.jar'
+          cd dist/libs
+          nohup java -jar pizzaordering-0.0.1-SNAPSHOT.jar &
