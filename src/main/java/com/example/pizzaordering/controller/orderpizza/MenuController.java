@@ -1,4 +1,4 @@
-package com.example.pizzaordering.controller;
+package com.example.pizzaordering.controller.orderpizza;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 
-import com.example.pizzaordering.VO.Menu;
+import com.example.pizzaordering.vo.Menu;
 
 @RequiredArgsConstructor
 @RestController
