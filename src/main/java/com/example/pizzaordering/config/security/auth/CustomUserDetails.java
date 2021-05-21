@@ -1,6 +1,6 @@
 package com.example.pizzaordering.config.security.auth;
 
-import com.example.pizzaordering.VO.User;
+import com.example.pizzaordering.vo.User;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import lombok.Data;
