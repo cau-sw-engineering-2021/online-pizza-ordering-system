@@ -1,4 +1,4 @@
-package com.example.pizzaordering.VO;
+package com.example.pizzaordering.vo;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

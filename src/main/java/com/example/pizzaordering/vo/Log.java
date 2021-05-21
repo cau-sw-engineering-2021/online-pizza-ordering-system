@@ -1,9 +1,10 @@
-package com.example.pizzaordering.VO;
+package com.example.pizzaordering.vo;
 
 import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+
 @Entity
 @Data
 @Table(name="log")

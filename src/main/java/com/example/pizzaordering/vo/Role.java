@@ -1,6 +1,7 @@
-package com.example.pizzaordering.VO;
+package com.example.pizzaordering.vo;
 
 import lombok.Getter;
+
 @Getter
 public enum Role {
     MANAGER("ROLE_MANAGER"),
