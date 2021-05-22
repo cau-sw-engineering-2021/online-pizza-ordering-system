@@ -1,7 +1,7 @@
-import { apiserver as contextPath } from '../../package.json';
+import { apiserver } from '../../package.json';
 
 const fetchMenuList = async () => {
-  const response = await fetch(`${contextPath}/api/menulist`, {
+  const response = await fetch(`${apiserver}/menulist`, {
     method: "GET",
   });
 
@@ -9,7 +9,7 @@ const fetchMenuList = async () => {
 };
 
 const fetchMenuDetail = async ({id}) => {
-  const response = await fetch(`${contextPath}/api/menu/${id}`, {
+  const response = await fetch(`${apiserver}/menu/${id}`, {
     method: "GET",
   });
 

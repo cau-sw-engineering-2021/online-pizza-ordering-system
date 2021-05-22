@@ -1,6 +1,6 @@
-import { apiserver as contextPath } from '../../package.json';
+import { apiserver } from '../../package.json';
 const join = async ({name, id, phone, address, email, password}) => {
-  const response = await fetch(`${contextPath}/api/join`, {
+  const response = await fetch(`${apiserver}/join`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -18,7 +18,7 @@ const join = async ({name, id, phone, address, email, password}) => {
   return await response.json();
 }
 const login = async ({id, password}) => {
-  const response = await fetch(`${contextPath}/api/login`, {
+  const response = await fetch(`${apiserver}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -32,11 +32,11 @@ const login = async ({id, password}) => {
   return await response.json();
 }
 
-const fetchAddress = ({jwt}) => {
-  const response = await fetch(`${contextPath}/api/user/address`, {
+const fetchAddress = async ({jwt}) => {
+  const response = await fetch(`${apiserver}/user/address`, {
     method: "GET",
     headers: {
-      "X-AUTH_TOKEN": jwtToken
+      "X-AUTH_TOKEN": jwt
     }
   });
 
@@ -45,7 +45,7 @@ const fetchAddress = ({jwt}) => {
 
 /* only test function */
 const ping = async ({jwt}) => {
-  const response = await fetch(`${contextPath}/api/ping`, {
+  const response = await fetch(`${apiserver}/ping`, {
     method: "GET",
     headers: {
       "X-AUTH-TOKEN": jwt,

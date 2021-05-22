@@ -2,7 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import {login, ping, fetchMenuList,
   fetchCartList, addCartItem, removeCartItem,
-  fetchAddress, } from './util';
+  fetchAddress,
+  createOrder,
+} from './util';
 
 function App() {
   /* Login Test */
@@ -23,6 +25,8 @@ function App() {
   addCartItem({id : 3}).then(console.log);
   removeCartItem({id : 1}).then(console.log);
 
+  /* Order Test */
+  createOrder({id : 1}).then(console.log);
 
   return (
     <div className="App">

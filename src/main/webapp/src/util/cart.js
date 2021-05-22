@@ -1,7 +1,7 @@
-import { apiserver as contextPath } from '../../package.json';
+import { apiserver } from '../../package.json';
 
 const fetchCartList = async () => {
-  const response = await fetch(`${contextPath}/api/cart`, {
+  const response = await fetch(`${apiserver}/cart`, {
     method: "GET",
   });
 
@@ -9,7 +9,7 @@ const fetchCartList = async () => {
 }
 
 const addCartItem = async ({id}) => {
-  const response = await fetch(`${contextPath}/api/cart/add`, {
+  const response = await fetch(`${apiserver}/cart/add`, {
     method: "POST",
     headers: {
       "Content-Type":"application/json",
@@ -21,7 +21,7 @@ const addCartItem = async ({id}) => {
 }
 
 const removeCartItem = async ({id}) => {
-  const response = await fetch(`${contextPath}/api/cart/remove`, {
+  const response = await fetch(`${apiserver}/cart/remove`, {
     method: "POST",
     headers: {
       "Content-Type":"application/json",
