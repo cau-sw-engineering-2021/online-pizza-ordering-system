@@ -4,6 +4,8 @@ import {login, ping, fetchMenuList,
   fetchCartList, addCartItem, removeCartItem,
   fetchAddress,
   createOrder,
+  fetchSalesList,
+  deleteUser,
 } from './util';
 
 function App() {
@@ -12,9 +14,20 @@ function App() {
     id: "lmu",
     password: "test",
   }).then(({jwt}) => {
-    /* User Address */
+    /* JWT Test */
     ping({jwt}).then(console.log);
+
+    /* User Address */
     fetchAddress({jwt}).then(console.log);
+
+    /* Delete User */
+    deleteUser({jwt, userid: 1}).then(console.log);
+
+    /* Fetch Sale List */
+    fetchSalesList({ jwt,
+      start : "2020-05-01",
+      end : "2020-05-06",
+    }).then(console.log);
   });
 
   /* Menu Test */
@@ -27,6 +40,7 @@ function App() {
 
   /* Order Test */
   createOrder({id : 1}).then(console.log);
+
 
   return (
     <div className="App">

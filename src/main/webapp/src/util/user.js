@@ -43,6 +43,20 @@ const fetchAddress = async ({jwt}) => {
   return await response.json();
 }
 
+const deleteUser = async ({jwt, userid}) => {
+  const response = await fetch(`${apiserver}/user/delete`, {
+    method: "POST",
+    headers: {
+      "X-AUTH_TOKEN": jwt,
+    },
+    body: JSON.stringify({
+      id: userid,
+    })
+  });
+
+  return await response.json();
+}
+
 /* only test function */
 const ping = async ({jwt}) => {
   const response = await fetch(`${apiserver}/ping`, {
@@ -59,5 +73,6 @@ export {
   join,
   login,
   fetchAddress,
+  deleteUser,
   ping,
 };
