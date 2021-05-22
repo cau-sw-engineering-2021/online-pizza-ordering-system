@@ -1,4 +1,4 @@
-import { join, login, ping } from './user';
+import { join, login, ping, fetchAddress } from './user';
 import { fetchMenuList } from './menu';
 import { fetchCartList, addCartItem, removeCartItem } from './cart';
 
@@ -10,4 +10,5 @@ export {
   fetchCartList,
   addCartItem,
   removeCartItem,
+  fetchAddress,
 };

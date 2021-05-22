@@ -1,4 +1,4 @@
-import { homepage as contextPath } from '../../package.json';
+import { apiserver as contextPath } from '../../package.json';
 
 const fetchMenuList = async () => {
   const response = await fetch(`${contextPath}/api/menulist`, {

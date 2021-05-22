@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import {login, ping, fetchMenuList,
-  fetchCartList, addCartItem, removeCartItem} from './util';
+  fetchCartList, addCartItem, removeCartItem,
+  fetchAddress, } from './util';
 
 function App() {
   /* Login Test */
@@ -9,7 +10,9 @@ function App() {
     id: "lmu",
     password: "test",
   }).then(({jwt}) => {
-    ping(jwt).then(console.log);
+    /* User Address */
+    ping({jwt}).then(console.log);
+    fetchAddress({jwt}).then(console.log);
   });
 
   /* Menu Test */
@@ -19,6 +22,8 @@ function App() {
   fetchCartList().then(console.log);
   addCartItem({id : 3}).then(console.log);
   removeCartItem({id : 1}).then(console.log);
+
+
   return (
     <div className="App">
       <header className="App-header">
