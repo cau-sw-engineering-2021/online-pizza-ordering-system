@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import {login, ping, fetchMenuList} from './util';
+import {login, ping, fetchMenuList,
+  fetchCartList, addCartItem, removeCartItem} from './util';
 
 function App() {
   /* Login Test */
@@ -13,6 +14,11 @@ function App() {
 
   /* Menu Test */
   fetchMenuList().then(console.log);
+
+  /* Cart Test */
+  fetchCartList().then(console.log);
+  addCartItem({id : 3}).then(console.log);
+  removeCartItem({id : 1}).then(console.log);
   return (
     <div className="App">
       <header className="App-header">

@@ -32,6 +32,7 @@ const login = async ({id, password}) => {
   return await response.json();
 }
 
+/* only test function */
 const ping = async (jwtToken) => {
   const response = await fetch(`${contextPath}/api/ping`, {
     method: "GET",
@@ -42,6 +43,7 @@ const ping = async (jwtToken) => {
   });
   return await response.json();
 }
+
 export {
   join,
   login,

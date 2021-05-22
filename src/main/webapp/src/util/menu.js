@@ -5,7 +5,7 @@ const fetchMenuList = async () => {
     method: "GET",
   });
 
-  return response.json();
+  return await response.json();
 };
 
 const fetchMenuDetail = async ({id}) => {
@@ -13,7 +13,7 @@ const fetchMenuDetail = async ({id}) => {
     method: "GET",
   });
 
-  return response.json();
+  return await response.json();
 };
 
 export {
