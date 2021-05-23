@@ -1,12 +1,12 @@
 package com.example.pizzaordering.controller.management;
 import com.example.pizzaordering.dto.MenuDto;
+import com.example.pizzaordering.dto.PureMenuDto;
+import com.example.pizzaordering.dto.PureUserDto;
+import com.example.pizzaordering.repository.MenuRepository;
 import com.example.pizzaordering.service.management.AddMenuOperator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +17,7 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import com.example.pizzaordering.vo.Menu;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,7 +30,8 @@ import javax.servlet.http.HttpServletRequest;
 public class MenuManagementController {
     @Autowired
     AddMenuOperator addMenuOperator;
-    /* TODO : Implement */
+    @Autowired
+    MenuRepository menuRepository;
     @PostMapping("/menu/add")
     public ResponseEntity<Object> addMenu(HttpServletRequest body, @RequestPart MultipartFile file, Map<String, Object> item) throws IOException {
         ResponseEntity<Object> retval = null;
@@ -46,6 +48,16 @@ public class MenuManagementController {
         else
             result.put("msg","fail");
         retval = new ResponseEntity<Object>(result, HttpStatus.OK);
+        return retval;
+    }
+    @GetMapping("/menu/menulist")
+    public ResponseEntity<?> getMenuList(){
+        ResponseEntity<Object> retval = null;
+        Map<String, Object> result = new HashMap<String, Object>();
+        List<PureMenuDto> menuList=menuRepository.findAll().stream().map(PureMenuDto::of).collect(Collectors.toList());
+        result.put("msg","success");
+        result.put("menulist",menuList);
+        retval=new ResponseEntity<>(result,HttpStatus.OK);
         return retval;
     }
 }
