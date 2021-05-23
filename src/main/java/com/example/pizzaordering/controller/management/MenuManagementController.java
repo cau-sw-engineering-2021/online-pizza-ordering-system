@@ -33,17 +33,10 @@ public class MenuManagementController {
     @Autowired
     MenuRepository menuRepository;
     @PostMapping("/menu/add")
-    public ResponseEntity<Object> addMenu(HttpServletRequest body, @RequestPart MultipartFile file, Map<String, Object> item) throws IOException {
+    public ResponseEntity<Object> addMenu(Map<String, Object> item) throws IOException {
         ResponseEntity<Object> retval = null;
-        String savedname="";
         Map<String, Object> result = new HashMap<String, Object>();
-        if(!file.isEmpty()){
-            savedname=file.getOriginalFilename();
-            String up=body.getSession().getServletContext().getRealPath("/")+"menuimgstorage";
-            File target=new File(up,savedname);
-            FileCopyUtils.copy(file.getBytes(),target);
-        }
-        if(addMenuOperator.addMenu((MenuDto)item.get("menu"),savedname))
+        if(addMenuOperator.addMenu((MenuDto)item.get("menu")))
             result.put("msg", "success");
         else
             result.put("msg","fail");
