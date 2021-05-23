@@ -10,3 +10,5 @@ build
 .project
 bin
 tags
+
+.DS_Store

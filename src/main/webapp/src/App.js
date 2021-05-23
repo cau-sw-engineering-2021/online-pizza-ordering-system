@@ -1,64 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
-import {login, ping, fetchMenuList,
-  fetchCartList, addCartItem, removeCartItem,
-  fetchAddress,
-  createOrder,
-  fetchSalesList,
-  deleteUser,
-} from './util';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import MenuDetail from "./menu/MenuDetail";
+import MenuList from "./menu/MenuList";
+import Navigation from "./navigation/Navigation";
+import OrderList from "./OrderList";
+import { SignIn, SignUp } from "./Login";
+
+// TODO: 백엔드와 데이터 형식 조율, 비동기 처리로 변경
+const menuList = [
+  {
+    id: 1,
+    name: "Pizza1",
+    price: { L: 20000, M: 11000 },
+    size: ["L", "M"],
+    imgSrc:
+      "https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+  },
+  {
+    id: 2,
+    name: "Pizza2",
+    price: { L: 17900, M: 11000 },
+    size: ["L", "M"],
+    imgSrc:
+      "https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+  },
+];
 
 function App() {
-  /* Login Test */
-  login({
-    id: "lmu",
-    password: "test",
-  }).then(({jwt}) => {
-    /* JWT Test */
-    ping({jwt}).then(console.log);
-
-    /* User Address */
-    fetchAddress({jwt}).then(console.log);
-
-    /* Delete User */
-    deleteUser({jwt, userid: 1}).then(console.log);
-
-    /* Fetch Sale List */
-    fetchSalesList({ jwt,
-      start : "2020-05-01",
-      end : "2020-05-06",
-    }).then(console.log);
-  });
-
-  /* Menu Test */
-  fetchMenuList().then(console.log);
-
-  /* Cart Test */
-  fetchCartList().then(console.log);
-  addCartItem({id : 3}).then(console.log);
-  removeCartItem({id : 1}).then(console.log);
-
-  /* Order Test */
-  createOrder({id : 1}).then(console.log);
-
-
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Pizza Online Order System
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router basename="/pizza">
+        {/* TODO: Set user information with Context API */}
+        <Navigation isLoggedIn={true} />
+        <Switch>
+          <Route exact path="/">
+            <MenuList menuList={menuList} />
+          </Route>
+          <Route exact path="/login">
+            <SignIn />
+          </Route>
+          <Route exact path="/signup">
+            <SignUp />
+          </Route>
+          <Route exact path="/order">
+            <OrderList />
+          </Route>
+          <Route path="/menu/:id">
+            <MenuDetail />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
