@@ -1,8 +1,11 @@
 import { apiserver } from '../../package.json';
 
-const fetchMenuList = async () => {
-  const response = await fetch(`${apiserver}/menulist`, {
+const fetchMenuList = async ({jwt}) => {
+  const response = await fetch(`${apiserver}/menu/menulist`, {
     method: "GET",
+    headers: {
+      "X-AUTH_TOKEN": jwt
+    }
   });
 
   return await response.json();
@@ -31,9 +34,12 @@ const AddMenu = async ({jwt, id, name, price, size, detail, imgLocation}) => {
       imgLocation: imgLocation,
     })
   });
+  
+  return await response.json();
 }
 
 export {
+  AddMenu,
   fetchMenuList,
   fetchMenuDetail,
 };

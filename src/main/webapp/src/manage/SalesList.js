@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -8,15 +8,14 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {BorderColorSharp, DeleteForeverSharp} from '@material-ui/icons';
-import {fetchUserList, deleteUser} from '../util/index';
-import DeleteDialog from './DeleteDIalog';
+import Button from '@material-ui/core/Button';
+import {fetchSalesList} from '../util/index';
 
 function createData(name, phone, role) {
   return { name, phone, role };
 }
 
-const rows = [
+const dummy = [
   createData('Frozen yoghurt', 159, 4.0),
   createData('Ice cream sandwich', 237, 9.0),
   createData('Eclair', 262, 16.0),
@@ -24,32 +23,30 @@ const rows = [
   createData('Gingerbread', 356, 16.0),
 ];
 
-const Userlist = () => {
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [userList, setUserList] = useState(null);
-  const [id, setId] = useState(0);
+const SalesList = () => {
+  const [salesList, setSalesList] = useState(null);
 
-  const handleClickOpen = (id) => {
-    setDialogOpen(true);
-    setId(id);
-  };
-
-  const handleClose = () => {
-    setDialogOpen(false);
-  };
+  const fetchByPeriod = (start, end) => {
+      try {
+    const data = fetchSalesList(start, end);
+    console.log(data);
+    setSalesList(data);
+      } catch(e) {
+          console.log(e);
+      }
+  }
 
   useEffect(() => {
     try {
-      fetchUserList.then(data => {
-        console.log(data);
-        //setUserList(data);
-      })
+      const data = fetchSalesList();
+      console.log(data);
+      setSalesList(data);
     } catch(e) {
         console.log(e);
     }
   }, []);
 
-  if (!userList) {
+  if (!salesList) {
     return null;
   }
 
@@ -70,25 +67,22 @@ const Userlist = () => {
                  </TableRow>
               </TableHead>
               <TableBody>
-                {userList.map((user) => (
-                  <TableRow key={user.id}>
+                {salesList.map((sales) => (
+                  <TableRow key={sales.id}>
                      <TableCell component="th" scope="row">
-                        {row.name}
+                        {sales.name}
                     </TableCell>
-                    <TableCell align="right">{user.name}</TableCell>
-                     <TableCell align="right">{user.phone}</TableCell>
-                     <TableCell align="right">{user.role}</TableCell>
-                     <TableCell><BorderColorSharp /></TableCell>
-                     <TableCell><DeleteForeverSharp onClick={handleClickOpen(user.id)}/></TableCell>
+                    <TableCell align="right">{sales.name}</TableCell>
+                     <TableCell align="right">{sales.phone}</TableCell>
+                     <TableCell align="right">{sales.role}</TableCell>
                    </TableRow>
                  ))}
                </TableBody>
             </Table>
            </TableContainer>
-           <DeleteDialog open={dialogOpen} userId={id} handleClose={handleClose}/>
-         <div>추가</div>
+           <Button onClick = {fetchByPeriod("200101", "200413")}>Apply</Button>
       </div>
   );
 }
 
-export default Userlist;
+export default SalesList;
