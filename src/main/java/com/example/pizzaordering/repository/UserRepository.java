@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface UserRepository extends CrudRepository<User, Long> {
     User findUserByNickname(String nickname);
+    User findUserByName(String name);
     Boolean existsByNickname(String nickname);
     List<User> findAll();
+    Boolean existsByName(String name);
 }

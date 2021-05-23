@@ -87,4 +87,11 @@ public class UserService {
 
         return retval;
     }
+
+    public User getUserByName(String name){
+        if(!userRepository.existsByName(name))
+            return null;
+        else
+            return userRepository.findUserByName(name);
+    }
 }

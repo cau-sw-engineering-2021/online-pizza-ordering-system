@@ -6,5 +6,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface OrderRepository extends CrudRepository<Order, Long> {
+    public List<Order> findAllByOrderStatusIn(List<String> status);
     List<Order> findAllByLastUpdateTimeBetween(LocalDateTime start, LocalDateTime end);
 }
