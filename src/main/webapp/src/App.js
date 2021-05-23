@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import MenuList from "./menu-list/MenuList";
+import MenuDetail from "./menu/MenuDetail";
+import MenuList from "./menu/MenuList";
 import Navigation from "./navigation/Navigation";
 import OrderList from "./OrderList";
 import { SignIn, SignUp } from "./Login";
@@ -42,6 +43,9 @@ function App() {
           </Route>
           <Route exact path="/order">
             <OrderList />
+          </Route>
+          <Route path="/menu/:id">
+            <MenuDetail />
           </Route>
         </Switch>
       </Router>
