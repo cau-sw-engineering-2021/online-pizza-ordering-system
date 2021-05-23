@@ -1,24 +1,19 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import MenuList from "./menu-list/MenuList";
+import Navigation from "./navigation/Navigation";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Pizza Online Order System Edit <code>src/App.js</code> and save to
-          reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router basename="/pizza">
+        {/* TODO: Set user information with Context API */}
+        <Navigation isLoggedIn={true} />
+        <Switch>
+          <Route exact path="/">
+            <MenuList />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
