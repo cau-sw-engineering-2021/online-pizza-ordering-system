@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const Container = styled.div`
   width: 1280px;
@@ -20,7 +20,7 @@ const NavContainer = styled.div`
   display: flex;
   justify-content: space-around;
 `
-const Nav = styled(NavLink)`
+const Nav = styled(Link)`
   width: 300px;
   height: 300px;
   display: flex;
@@ -31,19 +31,19 @@ const Nav = styled(NavLink)`
   background-color: #FFD685;
   font: 35px bold sans-serif;
 `
-const Main = () => {
+const Manager = () => {
     return (
         <Container>
             <Header>
-                <span>MANAGEMENT</span>
+              <span>MANAGEMENT</span>
             </Header>
             <NavContainer>
-                <Nav key={} to="">Manage<br/>User</Nav>
-                <Nav key={} to="">Manage<br/>Pizza</Nav>
-                <Nav key={} to="">Manage<br/>Sales</Nav>
+              <Nav to={`/manager/user`}>Manage<br/>User</Nav>
+              <Nav to={`/manager/menu`}>Manage<br/>Pizza</Nav>
+              <Nav to={`/manager/sales`}>Manage<br/>Sales</Nav>
             </NavContainer>
         </Container>
     );
 }
 
-export default Main;
+export default Manager;

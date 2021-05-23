@@ -4,6 +4,10 @@ import MenuList from "./menu/MenuList";
 import Navigation from "./navigation/Navigation";
 import OrderList from "./OrderList";
 import { SignIn, SignUp } from "./Login";
+import Manager from "./manage/Manager";
+import UserList from "./manage/UserList";
+import Menulist from "./manage/Menulist";
+import SalesList from "./manage/SalesList";
 
 // TODO: 백엔드와 데이터 형식 조율, 비동기 처리로 변경
 const menuList = [
@@ -46,6 +50,18 @@ function App() {
           </Route>
           <Route path="/menu/:id">
             <MenuDetail />
+          </Route>
+          <Route exact path="/manager">
+            <Manager />
+          </Route>
+          <Route exact path="/manager/user">
+            <UserList />
+          </Route>
+          <Route exact path="/manager/menu">
+            <Menulist />
+          </Route>
+          <Route exact path="/manager/sales">
+            <SalesList />
           </Route>
         </Switch>
       </Router>

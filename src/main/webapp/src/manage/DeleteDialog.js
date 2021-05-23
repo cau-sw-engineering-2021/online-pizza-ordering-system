@@ -8,6 +8,7 @@ import {
     DialogTitle}
 from '@material-ui/core';
 import {DeleteForeverSharp} from '@material-ui/icons';
+import {deleteUser} from '../util/index';
 
 const DeleteDialog = ({open, userId, handleClose}) => {
   

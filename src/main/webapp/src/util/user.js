@@ -1,4 +1,17 @@
 import { apiserver } from '../../package.json';
+
+const fetchUserList = async () => {
+  const response = await fetch(`${apiserver}/user/userlist`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      'Accept': "application/json"
+    }
+  });
+  console.log(response);
+  return await response.json();
+};
+
 const join = async ({name, id, phone, address, email, password}) => {
   const response = await fetch(`${apiserver}/join`, {
     method: "POST",
@@ -48,6 +61,7 @@ const deleteUser = async ({jwt, userid}) => {
     method: "POST",
     headers: {
       "X-AUTH-TOKEN": jwt,
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       id: userid,
@@ -70,6 +84,7 @@ const ping = async ({jwt}) => {
 }
 
 export {
+  fetchUserList,
   join,
   login,
   fetchAddress,
