@@ -1,4 +1,7 @@
 package com.example.pizzaordering.controller.management;
+import com.example.pizzaordering.service.common.UserService;
+import com.example.pizzaordering.service.management.DeleteUserOperator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,14 +21,21 @@ import com.example.pizzaordering.vo.Menu;
 @RestController
 @RequestMapping("/api")
 public class ManagementController {
-
+    @Autowired
+    DeleteUserOperator deleteUserOperator;
     /* TODO : Implement */
     @PostMapping("/user/delete")
-    public ResponseEntity<Object> deleteUser(Map<String, Object> user) {
+    public ResponseEntity<?> deleteUser(Map<String, String> user) {
         ResponseEntity<Object> retval = null;
         Map<String, Object> result = new HashMap<String, Object>();
-        result.put("msg", "success");
-        retval = new ResponseEntity<Object>(result, HttpStatus.OK);
+        if(deleteUserOperator.deleteUser(user.get("id"))) {
+            result.put("msg", "success");
+            retval = new ResponseEntity<Object>(result, HttpStatus.OK);
+        }
+        else{
+            result.put("msg", "fail");
+            retval = new ResponseEntity<Object>(result, HttpStatus.NOT_FOUND);
+        }
         return retval;
     }
 }
