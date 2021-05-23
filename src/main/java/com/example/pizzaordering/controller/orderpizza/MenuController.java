@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 import com.example.pizzaordering.vo.Menu;
 
-@CrossOrigin("*")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
