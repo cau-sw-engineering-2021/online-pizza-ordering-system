@@ -2,6 +2,9 @@ package com.example.pizzaordering.controller.orderpizza;
 
 import com.example.pizzaordering.dto.UserDto;
 import com.example.pizzaordering.service.common.UserService;
+import com.example.pizzaordering.service.orderstatus.OrderListService;
+import com.example.pizzaordering.vo.Item;
+import com.example.pizzaordering.vo.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +19,22 @@ import java.util.HashMap;
 @RequestMapping("/api")
 public class OrderController {
 
+    @Autowired
+    OrderListService orderListService;
+
+
+    /*
+    params : orderInformation | String - deliveryType, Integer - totalPrice
+           : itemList | [{"menuId" : Integer }, {"count" Integer}]
+     */
     @PostMapping("/order")
-    public ResponseEntity<Object> joinUser(@RequestBody Map<String, Object> order) {
+    public ResponseEntity<Object> order(@RequestParam Order orderInformation,
+                                        @RequestParam List<Map<String, Integer>> itemList) {
+
         ResponseEntity<Object> retval = null;
         Map<String, Object> result = new HashMap<String, Object>();
 
+        orderListService.createOrder(orderInformation, itemList);
         result.put("msg", "success");
 
         retval = new ResponseEntity<Object>(result, HttpStatus.OK);
