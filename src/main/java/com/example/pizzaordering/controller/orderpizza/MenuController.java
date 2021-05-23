@@ -1,5 +1,12 @@
 package com.example.pizzaordering.controller.orderpizza;
-import org.springframework.web.bind.annotation.*;
+
+import com.example.pizzaordering.service.orderpizza.MenuService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import lombok.RequiredArgsConstructor;
@@ -11,16 +18,19 @@ import java.util.ArrayList;
 
 import com.example.pizzaordering.vo.Menu;
 
-@CrossOrigin("*")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
 public class MenuController {
-    /* TODO : menuRepository */
 
+    @Autowired
+    MenuService menuService;
 
-    /* TODO : Implement */
-    @GetMapping("/menulist")
+    /*
+    params : X
+    return : List<Menu> : menuList
+     */
+    @GetMapping("/menuList")
     public ResponseEntity<Object> menuList() {
         ResponseEntity<Object> retval = null;
         Map<String, Object> result = new HashMap<String, Object>();
@@ -43,17 +53,25 @@ public class MenuController {
 
         menus.add(menu1);
         menus.add(menu2);
-        /* Dummy Code End */
         result.put("menu", menus);
+        /* Dummy Code End */
+        // get All Menu
+        result.put("menuList", menuService.getMenuList());
         retval = new ResponseEntity<Object>(result, HttpStatus.OK);
         return retval;
     }
 
-    /* TODO : Implement.... I don't know exactly what you want */
-    @GetMapping("/menu/{id}")
-    public ResponseEntity<Object> menuDetails(@PathVariable Long id) {
+    /*
+    @param : name - String : name
+    return : one menu
+     */
+    @GetMapping("/menu/{name}")
+    public ResponseEntity<Object> menuDetails(@PathVariable String name) {
         ResponseEntity<Object> retval = null;
         Map<String, Object> result = new HashMap<String, Object>();
+
+        // get one menu by name
+        result.put("menu", menuService.getMenuDetailByName(name));
         retval = new ResponseEntity<Object>(result, HttpStatus.OK);
         return retval;
     }

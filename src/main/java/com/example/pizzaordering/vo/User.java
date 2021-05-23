@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Entity
@@ -23,7 +24,8 @@ public class User {
     private Role role;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Order> orderList;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval=true)
     @JoinColumn(name = "user_id")
     private List<CartItem> cartItemList;
 
@@ -35,5 +37,14 @@ public class User {
         this.email = email;
         this.password = password;
         this.role=role;
+    }
+
+    public void removeCartItemByItemId(Long id){
+        for(CartItem cartItem : this.getCartItemList()){
+            if(cartItem.getId().equals(id)){
+                this.cartItemList.remove(cartItem);
+                break;
+            }
+        }
     }
 }
