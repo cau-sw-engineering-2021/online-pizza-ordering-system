@@ -20,7 +20,7 @@ const AddMenu = async ({jwt, id, name, price, size, detail, imgLocation}) => {
   const response = await fetch(`${apiserver}/menu/add`, {
     method: "POST",
     headers: {
-      "X-AUTH_TOKEN": jwt,
+      "X-AUTH-TOKEN": jwt,
     },
     body: JSON.stringify({
       id: id,

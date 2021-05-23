@@ -6,7 +6,7 @@ const fetchSalesList = async ({ jwt,
   const response = await fetch(`${apiserver}/saleslist?start=${encodeURIComponent(start)}&end=${encodeURIComponent(end)}`, {
     method: "GET",
     headers: {
-      "X-AUTH_TOKEN": jwt,
+      "X-AUTH-TOKEN": jwt,
     },
   });
 

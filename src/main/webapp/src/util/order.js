@@ -14,6 +14,18 @@ const createOrder = async ({
   return await response.json();
 }
 
+const fetchOrderList = async ({ jwt }) => {
+  const response = await fetch(`${apiserver}/order`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    }
+  });
+
+  return await response.json();
+}
+
 export {
   createOrder,
+  fetchOrderList,
 }

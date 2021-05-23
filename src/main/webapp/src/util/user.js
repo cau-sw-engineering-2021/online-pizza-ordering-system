@@ -36,7 +36,7 @@ const fetchAddress = async ({jwt}) => {
   const response = await fetch(`${apiserver}/user/address`, {
     method: "GET",
     headers: {
-      "X-AUTH_TOKEN": jwt
+      "X-AUTH-TOKEN": jwt
     }
   });
 
@@ -47,7 +47,7 @@ const deleteUser = async ({jwt, userid}) => {
   const response = await fetch(`${apiserver}/user/delete`, {
     method: "POST",
     headers: {
-      "X-AUTH_TOKEN": jwt,
+      "X-AUTH-TOKEN": jwt,
     },
     body: JSON.stringify({
       id: userid,
