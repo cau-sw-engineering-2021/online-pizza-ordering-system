@@ -30,7 +30,7 @@ public class MenuController {
     params : X
     return : List<ShowMenuDto> : menuList
      */
-    @GetMapping("/menuList")
+    @GetMapping("/menulist")
     public ResponseEntity<Object> menuList() {
         ResponseEntity<Object> retval = null;
         Map<String, Object> result = new HashMap<String, Object>();
