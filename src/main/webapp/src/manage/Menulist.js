@@ -83,7 +83,7 @@ const Menulist = () => {
               </Table>
             </TableContainer>
             <div>
-              <Button onClick = {AddMenu(Dummy)}>추가</Button>
+              <Button onClick = {AddMenu({...Dummy})}>추가</Button>
             </div>
         </div>
     );
