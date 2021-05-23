@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MenuDetail from "./menu/MenuDetail";
 import MenuList from "./menu/MenuList";
 import Navigation from "./navigation/Navigation";
+import OrderList from "./OrderList";
+import { SignIn, SignUp } from "./Login";
 
 // TODO: 백엔드와 데이터 형식 조율, 비동기 처리로 변경
 const menuList = [
@@ -32,6 +34,15 @@ function App() {
         <Switch>
           <Route exact path="/">
             <MenuList menuList={menuList} />
+          </Route>
+          <Route exact path="/login">
+            <SignIn />
+          </Route>
+          <Route exact path="/signup">
+            <SignUp />
+          </Route>
+          <Route exact path="/order">
+            <OrderList />
           </Route>
           <Route path="/menu/:id">
             <MenuDetail />
