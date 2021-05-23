@@ -28,7 +28,7 @@ public class MenuController {
 
     /*
     params : X
-    return : List<Menu> : menuList
+    return : List<ShowMenuDto> : menuList
      */
     @GetMapping("/menuList")
     public ResponseEntity<Object> menuList() {
@@ -63,7 +63,7 @@ public class MenuController {
 
     /*
     @param : name - String : name
-    return : List<Menu> : menus
+    return : ShowMenuDto : menu
      */
     @GetMapping("/menu/{name}")
     public ResponseEntity<Object> menuDetails(@PathVariable String name) {
@@ -71,7 +71,7 @@ public class MenuController {
         Map<String, Object> result = new HashMap<String, Object>();
 
         // get one menu by name
-        result.put("menus", menuService.getMenuDetailByName(name));
+        result.put("menu", menuService.getMenuDetailByName(name));
         retval = new ResponseEntity<Object>(result, HttpStatus.OK);
         return retval;
     }
