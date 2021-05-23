@@ -173,5 +173,3 @@ export default function SignUp() {
     </Container>
   );
 }
-
-export default SignUp;
