@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {NavLink} from 'react-router-dom';
 
 const Container = styled.div`
   width: 1280px;
@@ -19,7 +20,7 @@ const NavContainer = styled.div`
   display: flex;
   justify-content: space-around;
 `
-const Nav = styled.div`
+const Nav = styled(NavLink)`
   width: 300px;
   height: 300px;
   display: flex;
@@ -37,9 +38,9 @@ const Main = () => {
                 <span>MANAGEMENT</span>
             </Header>
             <NavContainer>
-                <Nav>Manage<br/>User</Nav>
-                <Nav>Manage<br/>Pizza</Nav>
-                <Nav>Manage<br/>Sales</Nav>
+                <Nav key={} to="">Manage<br/>User</Nav>
+                <Nav key={} to="">Manage<br/>Pizza</Nav>
+                <Nav key={} to="">Manage<br/>Sales</Nav>
             </NavContainer>
         </Container>
     );
