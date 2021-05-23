@@ -1,5 +1,4 @@
 package com.example.pizzaordering.controller.management;
-import com.example.pizzaordering.service.common.UserService;
 import com.example.pizzaordering.service.management.DeleteUserOperator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
