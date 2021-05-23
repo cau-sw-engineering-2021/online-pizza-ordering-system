@@ -41,6 +41,23 @@ public class CartController {
         return retval;
     }
 
+    /*
+        @param : Item | item
+        return : true / false
+         */
+    @PostMapping("/cart/remove")
+    public ResponseEntity<Object> removeFromCart(@RequestParam Long itemId) {
+        ResponseEntity<Object> retval = null;
+        Map<String, Object> result = new HashMap<String, Object>();
+        try {
+            cartService.removeFromCart(itemId);
+            result.put("success", true);
+        } catch(Exception e){
+            result.put("success", false);
+        }
+        retval = new ResponseEntity<Object>(result, HttpStatus.OK);
+        return retval;
+    }
 
     /*
     @param : X

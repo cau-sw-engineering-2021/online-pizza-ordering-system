@@ -26,6 +26,7 @@ public class CartService {
     @Autowired
     ItemRepository itemRepository;
 
+
     public CartItem addToCart(Item item){
         CartItem cartItem = new CartItem();
 
@@ -41,6 +42,19 @@ public class CartService {
 
         return cartItem;
     }
+
+    @Transactional
+    public boolean removeFromCart(Long id){
+        try {
+            String username = userService.getUsername();
+            User user = userService.getUserByName(username);
+            user.removeCartItemByItemId(id);
+            return true;
+        } catch(Exception e){
+            return false;
+        }
+    }
+
     @Transactional
     public List<Item> getCartItemList(){
         String username = userService.getUsername();
