@@ -10,5 +10,4 @@ public interface MenuRepository extends CrudRepository<Menu, Long> {
     List<Menu> findAll();
     Menu findMenuById(Long id);
     Menu findMenuByName(String name);
-
 }
