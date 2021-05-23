@@ -19,6 +19,7 @@ const fetchOrderList = async ({ jwt }) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      "X-AUTH-TOKEN": jwt,
     }
   });
 

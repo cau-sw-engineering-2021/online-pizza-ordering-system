@@ -13,6 +13,8 @@ import Button from '@material-ui/core/Button';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 
+import { fetchOrderList, login } from '../util';
+
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -35,10 +37,6 @@ function createData(orderId, lastUpdatedTime, preview, totalPrice, deliveryType,
   return { orderId, lastUpdatedTime, preview, totalPrice, deliveryType, orderStatus};
 }
 
-const rows = [
-  createData(1, "2020-05-23 07:44", "Bulgogi Pizza", 20000, "배달", "주문 완료"),
-];
-
 const useStyles = makeStyles((theme) => ({
   table: {
     minWidth: 700,
@@ -55,7 +53,6 @@ function DetailDialog(props) {
   const classes = useStyles();
   const { onClose, order, open } = props;
 
-  console.log(order);
   return (
     <Dialog onClose={onClose} aria-labelledby="simple-dialog-title" open={open} maxWidth="lg">
       <DialogTitle id="simple-dialog-title">상세내역</DialogTitle>
@@ -68,18 +65,39 @@ function DetailDialog(props) {
             </TableRow>
           </TableHead>
           <TableBody>
-              <StyledTableCell>
-                {JSON.stringify(order)}
-              </StyledTableCell>
-              <StyledTableCell>dummy</StyledTableCell>
+            {
+              order.itemList ?
+              order.itemList.map(({menu, optionList}) => {
+                const mainItem = (<StyledTableRow key={`item-${menu.id}`}>
+                  <StyledTableCell>{menu.name}</StyledTableCell>
+                  <StyledTableCell>{menu.price}</StyledTableCell>
+                  </StyledTableRow>);
+
+                const optionItem = optionList.map(option => (
+                  <StyledTableRow key={`option-${option.name}`}>
+                    <StyledTableCell>+{option.name}</StyledTableCell>
+                    <StyledTableCell>{option.price}</StyledTableCell>
+                  </StyledTableRow>
+                ));
+
+                const detailItem = (<StyledTableRow key={`detail-${menu.id}`}>
+                  <StyledTableCell> {menu.detail} </StyledTableCell>
+                  <StyledTableCell> </StyledTableCell>
+                  </StyledTableRow>
+                );
+
+                return (<>
+                  {mainItem}
+                  {optionItem}
+                  + (고객 요청 사항){detailItem}
+                </>);
+              }) :
+              ''
+            }
           </TableBody>
 
         </Table>
       </TableContainer>
-      <br />
-      고객 요구사항
-      <br />
-      ??
     </Dialog>
   );
 }
@@ -88,6 +106,18 @@ export default function OrderList() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [dialogData, setDialogData] = React.useState({});
+  const [orderList, setOrderList] = React.useState([]);
+
+  React.useEffect(async () => {
+    const { jwt }= await login({
+      id: "lmu",
+      password: "test"
+    });
+    setInterval(async () => {
+      const { order } = await fetchOrderList({ jwt });
+      setOrderList(order);
+    }, 1000);
+  }, []);
 
   const handleClickOpen = (order) => {
     setDialogData(order);
@@ -115,23 +145,24 @@ export default function OrderList() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row.orderId}>
-                <StyledTableCell> {row.orderId} </StyledTableCell>
-                <StyledTableCell>{row.lastUpdatedTime}</StyledTableCell>
+            {orderList.map((order) => (
+              <StyledTableRow key={order.id}>
+                <StyledTableCell> {order.id} </StyledTableCell>
+                <StyledTableCell>{order.lastUpdateTime}</StyledTableCell>
                 <StyledTableCell>
-                  {row.preview}
+                  {order.itemList.map(item=> `${item.menu.name}(${item.menu.detail}) x ${item.count}`)
+                  .reduce((acc, cur) => (acc + "," + cur), '') }
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={()=>{handleClickOpen(row)}}
+                    onClick={()=>{handleClickOpen(order)}}
                   >
                     상세내역 확인
                   </Button>
                 </StyledTableCell>
-                <StyledTableCell>{row.totalPrice}</StyledTableCell>
-                <StyledTableCell>{row.deliveryType}</StyledTableCell>
-                <StyledTableCell>{row.orderStatus}</StyledTableCell>
+                <StyledTableCell>{order.totalPrice}</StyledTableCell>
+                <StyledTableCell>{order.deliveryType}</StyledTableCell>
+                <StyledTableCell>{order.orderStatus}</StyledTableCell>
                 <StyledTableCell>
                   <Button
                     variant="contained"
