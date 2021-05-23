@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import MenuList from "./menu-list/MenuList";
+import MenuList from "./menu/MenuList";
 import Navigation from "./navigation/Navigation";
 
 // TODO: 백엔드와 데이터 형식 조율, 비동기 처리로 변경
