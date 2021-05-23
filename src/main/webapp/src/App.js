@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import MenuDetail from "./menu/MenuDetail";
 import MenuList from "./menu/MenuList";
 import Navigation from "./navigation/Navigation";
 
@@ -31,6 +32,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <MenuList menuList={menuList} />
+          </Route>
+          <Route path="/menu/:id">
+            <MenuDetail />
           </Route>
         </Switch>
       </Router>
