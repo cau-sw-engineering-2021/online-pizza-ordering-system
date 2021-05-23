@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin("*")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
@@ -40,6 +41,7 @@ public class CartController {
         retval = new ResponseEntity<Object>(result, HttpStatus.OK);
         return retval;
     }
+
 
     /*
         @param : Item | item
@@ -73,4 +75,5 @@ public class CartController {
         retval = new ResponseEntity<Object>(result, HttpStatus.OK);
         return retval;
     }
+  
 }

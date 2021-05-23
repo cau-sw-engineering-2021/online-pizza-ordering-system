@@ -1,9 +1,19 @@
-import { join, login, ping } from './user';
+import { join, login, ping, fetchAddress, deleteUser } from './user';
 import { fetchMenuList } from './menu';
+import { fetchCartList, addCartItem, removeCartItem } from './cart';
+import { createOrder } from './order';
+import { fetchSalesList } from './sale';
 
 export {
   join,
   login,
   ping,
   fetchMenuList,
+  fetchCartList,
+  addCartItem,
+  removeCartItem,
+  fetchAddress,
+  createOrder,
+  deleteUser,
+  fetchSalesList,
 };

@@ -1,6 +1,6 @@
-import { homepage as contextPath } from '../../package.json';
+import { apiserver } from '../../package.json';
 const join = async ({name, id, phone, address, email, password}) => {
-  const response = await fetch(`${contextPath}/api/join`, {
+  const response = await fetch(`${apiserver}/join`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -18,7 +18,7 @@ const join = async ({name, id, phone, address, email, password}) => {
   return await response.json();
 }
 const login = async ({id, password}) => {
-  const response = await fetch(`${contextPath}/api/login`, {
+  const response = await fetch(`${apiserver}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -32,18 +32,47 @@ const login = async ({id, password}) => {
   return await response.json();
 }
 
-const ping = async (jwtToken) => {
-  const response = await fetch(`${contextPath}/api/ping`, {
+const fetchAddress = async ({jwt}) => {
+  const response = await fetch(`${apiserver}/user/address`, {
     method: "GET",
     headers: {
-      "X-AUTH-TOKEN": jwtToken,
+      "X-AUTH_TOKEN": jwt
+    }
+  });
+
+  return await response.json();
+}
+
+const deleteUser = async ({jwt, userid}) => {
+  const response = await fetch(`${apiserver}/user/delete`, {
+    method: "POST",
+    headers: {
+      "X-AUTH_TOKEN": jwt,
+    },
+    body: JSON.stringify({
+      id: userid,
+    })
+  });
+
+  return await response.json();
+}
+
+/* only test function */
+const ping = async ({jwt}) => {
+  const response = await fetch(`${apiserver}/ping`, {
+    method: "GET",
+    headers: {
+      "X-AUTH-TOKEN": jwt,
       "Content-Type": "application/json",
     }
   });
   return await response.json();
 }
+
 export {
   join,
   login,
-  ping
+  fetchAddress,
+  deleteUser,
+  ping,
 };
