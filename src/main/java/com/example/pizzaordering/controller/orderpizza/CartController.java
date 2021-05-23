@@ -4,6 +4,7 @@ import com.example.pizzaordering.service.orderpizza.CartService;
 import com.example.pizzaordering.service.orderpizza.MenuService;
 import com.example.pizzaordering.vo.Item;
 import com.example.pizzaordering.vo.Menu;
+import com.example.pizzaordering.vo.Option;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,13 +29,19 @@ public class CartController {
     return : true / false
      */
     @PostMapping("/cart/add")
-    public ResponseEntity<Object> addToCart(@RequestParam Item item) {
+    public ResponseEntity<Object> addToCart(@RequestParam Menu menu,
+                                            @RequestParam Integer count,
+                                            @RequestParam List<Option> optionList) {
         ResponseEntity<Object> retval = null;
         Map<String, Object> result = new HashMap<String, Object>();
         try {
-            cartService.addToCart(item);
+            Item item = new Item();
+            item.setMenu(menu);
+            item.setCount(count);
+            cartService.addToCart(item, optionList);
             result.put("success", true);
         } catch(Exception e){
+            e.printStackTrace();
             result.put("success", false);
         }
         retval = new ResponseEntity<Object>(result, HttpStatus.OK);

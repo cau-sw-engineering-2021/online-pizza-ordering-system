@@ -1,14 +1,8 @@
 package com.example.pizzaordering.service.orderpizza;
 
-import com.example.pizzaordering.repository.CartRepository;
-import com.example.pizzaordering.repository.ItemRepository;
-import com.example.pizzaordering.repository.MenuRepository;
-import com.example.pizzaordering.repository.UserRepository;
+import com.example.pizzaordering.repository.*;
 import com.example.pizzaordering.service.common.UserService;
-import com.example.pizzaordering.vo.CartItem;
-import com.example.pizzaordering.vo.Item;
-import com.example.pizzaordering.vo.Menu;
-import com.example.pizzaordering.vo.User;
+import com.example.pizzaordering.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -25,14 +19,22 @@ public class CartService {
     CartRepository cartRepository;
     @Autowired
     ItemRepository itemRepository;
+    @Autowired
+    OptionRepository optionRepository;
+    @Autowired
+    MenuRepository menuRepository;
 
-
-    public CartItem addToCart(Item item){
+    public CartItem addToCart(Item item, List<Option> optionList){
         CartItem cartItem = new CartItem();
 
+        for(Option option : optionList){
+            option.setItem(item);
+        }
+        item.setOptionList(optionList);
         itemRepository.save(item);
 
-        String username = userService.getUsername();
+        //String username = userService.getUsername();
+        String username = "kjk";
         User user = userService.getUserByName(username);
 
         cartItem.setUser(user);
