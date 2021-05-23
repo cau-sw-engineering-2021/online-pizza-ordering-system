@@ -1,9 +1,5 @@
 package com.example.pizzaordering.controller.management;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +13,7 @@ import com.example.pizzaordering.vo.Menu;
 import com.example.pizzaordering.vo.Order;
 import com.example.pizzaordering.vo.Item;
 
+@CrossOrigin("*")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
