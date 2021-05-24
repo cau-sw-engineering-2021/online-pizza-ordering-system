@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Loading from "../common/Loading";
 import CartList from "./CartList";
 import { Button, Typography } from "@material-ui/core";
 import styled from "styled-components";
+import { useHistory } from "react-router";
 
 const getCartData = async () => [
   {
@@ -63,6 +64,15 @@ const OrderButton = styled(Button)`
 function CartPage() {
   const [loading, setLoading] = useState(true);
   const [cartData, setCartData] = useState([]);
+  const history = useHistory();
+
+  const onOrder = useCallback(() => {
+    const result = window.confirm("정말 주문하시겠습니까?");
+
+    if (result) {
+      history.push("order");
+    }
+  }, [history]);
 
   useEffect(() => {
     getCartData().then((data) => {
@@ -93,7 +103,9 @@ function CartPage() {
                   원
                 </strong>
               </TotalPrice>
-              <OrderButton variant="outlined">주문하기</OrderButton>
+              <OrderButton variant="outlined" onClick={onOrder}>
+                주문하기
+              </OrderButton>
             </section>
           </CartContent>
         </main>
