@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import styled from 'styled-components';
-import {makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -10,18 +8,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import {fetchSalesList} from '../util/index';
-
-function createData(name, phone, role) {
-  return { name, phone, role };
-}
-
-const dummy = [
-  createData('Frozen yoghurt', 159, 4.0),
-  createData('Ice cream sandwich', 237, 9.0),
-  createData('Eclair', 262, 16.0),
-  createData('Cupcake', 305, 3.7),
-  createData('Gingerbread', 356, 16.0),
-];
 
 const SalesList = () => {
   const [salesList, setSalesList] = useState(null);
