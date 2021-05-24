@@ -21,6 +21,8 @@ const Saleslist = () => {
     endDay: "",
   });
 
+  const {startYear, startMonth, startDay, endYear, endMonth, endDay} = inputs;
+
   const onChange = (e) => {
     const { value, id } = e.target;
     setInputs({
@@ -86,4 +88,4 @@ const Saleslist = () => {
     );
 }
 
-export default Menulist;
+export default Saleslist;
