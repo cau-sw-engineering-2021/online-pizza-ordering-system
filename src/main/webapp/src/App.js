@@ -46,7 +46,7 @@ function App() {
           <Route exact path="/signup">
             <SignUp />
           </Route>
-          <Route exact path="/order">
+          <Route exact path="/order-history">
             <OrderList />
           </Route>
           <Route path="/menu/:id">
