@@ -33,7 +33,7 @@ public class MenuManagementController {
     @Autowired
     MenuRepository menuRepository;
     @PostMapping("/menu/add")
-    public ResponseEntity<Object> addMenu(Map<String, Object> item) throws IOException {
+    public ResponseEntity<Object> addMenu(@RequestBody Map<String, Object> item) throws IOException {
         ResponseEntity<Object> retval = null;
         Map<String, Object> result = new HashMap<String, Object>();
         if(addMenuOperator.addMenu((MenuDto)item.get("menu")))
