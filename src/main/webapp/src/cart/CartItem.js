@@ -50,10 +50,10 @@ const ItemInformation = styled.div`
 const ItemPrice = styled.p`
   font-weight: 600;
   text-align: right;
+  margin-right: 16px;
 `;
 
 const RemoveButton = styled(Button)`
-  margin-left: 16px !important;
   height: 100%;
 `;
 
