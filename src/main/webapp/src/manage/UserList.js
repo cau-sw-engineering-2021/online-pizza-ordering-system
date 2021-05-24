@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -8,12 +8,12 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {BorderColorSharp, DeleteForeverSharp} from '@material-ui/icons';
 import {fetchUserList} from '../util/index';
-import DeleteDialog from './DeleteDialog';
+import DeleteUserDialog from './DeleteUserDialog';
 
 const UserList = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [userList, setUserList] = useState(null);
-  const [id, setId] = useState(0);
+  const [userList, setUserList] = useState([]);
+  const [id, setId] = useState("");
 
   const handleClickOpen = (id) => {
     setDialogOpen(true);
@@ -24,18 +24,12 @@ const UserList = () => {
     setDialogOpen(false);
   };
 
-    try {
-      fetchUserList().then(data => {
-        console.log(data.userlist);
-        setUserList(data.userlist);
-      });
-    } catch(e) {
-        console.log(e);
-    }
-
-  if (!userList) {
-    return null;
-  }
+  useEffect(() => {
+    fetchUserList().then(data => {
+      console.log(data.userlist);
+      setUserList(data.userlist);
+    });
+  },[dialogOpen]);
 
   return (
       <div>
@@ -59,19 +53,18 @@ const UserList = () => {
                      <TableCell component="th" scope="row">
                         {user.name}
                     </TableCell>
-                    <TableCell align="right">{user.name}</TableCell>
-                    <TableCell align="right">{user.nickname}</TableCell>
-                    <TableCell align="right">{user.phoneNum}</TableCell>
-                    <TableCell align="right">{user.address}</TableCell>
-                    <TableCell align="right">{user.email}</TableCell>
+                    <TableCell>{user.nickname}</TableCell>
+                    <TableCell>{user.phoneNum}</TableCell>
+                    <TableCell>{user.address}</TableCell>
+                    <TableCell>{user.email}</TableCell>
                     <TableCell><BorderColorSharp /></TableCell>
-                    <TableCell><DeleteForeverSharp onClick={handleClickOpen(user.id)}/></TableCell>
+                    <TableCell><DeleteForeverSharp onClick={() => {console.log(user.nickname);handleClickOpen(user.nickname)}}/></TableCell>
                    </TableRow>
                  ))}
                </TableBody>
             </Table>
            </TableContainer>
-           <DeleteDialog open={dialogOpen} userId={id} handleClose={handleClose}/>
+           <DeleteUserDialog open={dialogOpen} userNickname={id} handleClose={handleClose}/>
          <div>추가</div>
       </div>
   );

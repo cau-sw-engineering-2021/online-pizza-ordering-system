@@ -1,10 +1,12 @@
 import { apiserver } from '../../package.json';
 
-const fetchMenuList = async ({jwt}) => {
+const fetchMenuList = async () => {
   const response = await fetch(`${apiserver}/menu/menulist`, {
     method: "GET",
     headers: {
-      "X-AUTH_TOKEN": jwt
+      "Content-Type": "application/json",
+      'Accept': "application/json"
+      //"X-AUTH_TOKEN": jwt
     }
   });
 
@@ -19,19 +21,20 @@ const fetchMenuDetail = async ({id}) => {
   return await response.json();
 };
 
-const AddMenu = async ({jwt, id, name, price, size, detail, imgLocation}) => {
+const AddMenu = async ({name, largePrice, mediumPrice, smallPrice, imgUrl}) => {
   const response = await fetch(`${apiserver}/menu/add`, {
     method: "POST",
     headers: {
-      "X-AUTH-TOKEN": jwt,
+      //"X-AUTH-TOKEN": jwt,
+      "Content-Type": "application/json",
+      'Accept': "application/json"
     },
     body: JSON.stringify({
-      id: id,
       name: name,
-      price: price,
-      size: size,
-      detail: detail,
-      imgLocation: imgLocation,
+      largePrice: largePrice,
+      mediumPrice: mediumPrice,
+      smallPrice: smallPrice,
+      imgUrl: imgUrl,
     })
   });
   
