@@ -9,10 +9,11 @@ import {
 from '@material-ui/core';
 import {deleteUser} from '../util/index';
 
-const DeleteDialog = ({open, userId, handleClose}) => {
+const DeleteUserDialog = ({open, userNickname, handleClose}) => {
   
   const onDeleteClick = (id) => {
     try {
+      console.log(id);
       deleteUser(id).then(data => {
         console.log(data);
       })
@@ -33,14 +34,14 @@ const DeleteDialog = ({open, userId, handleClose}) => {
         <DialogTitle id="alert-dialog-title">{"Dialog"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            정말로 삭제하시겠습니까?
+            정말로 사용자를 삭제하시겠습니까?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             NO
           </Button>
-          <Button onClick={onDeleteClick(userId)} color="primary" autoFocus>
+          <Button onClick={() => {console.log(userNickname); onDeleteClick(userNickname)}} color="primary" autoFocus>
             YES
           </Button>
         </DialogActions>
@@ -49,4 +50,4 @@ const DeleteDialog = ({open, userId, handleClose}) => {
   );
 }
 
-export default DeleteDialog;
+export default DeleteUserDialog;
