@@ -30,11 +30,11 @@ const AddMenu = async ({name, largePrice, mediumPrice, smallPrice, imgUrl}) => {
       'Accept': "application/json"
     },
     body: JSON.stringify({
-      name: name,
-      largePrice: largePrice,
-      mediumPrice: mediumPrice,
-      smallPrice: smallPrice,
-      imgUrl: imgUrl,
+      name,
+      largePrice,
+      mediumPrice,
+      smallPrice,
+      imgUrl,
     })
   });
   

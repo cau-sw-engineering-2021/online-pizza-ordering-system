@@ -56,7 +56,7 @@ const fetchAddress = async ({jwt}) => {
   return await response.json();
 }
 
-const deleteUser = async (userid) => {
+const deleteUser = async (id) => {
   const response = await fetch(`${apiserver}/user/delete`, {
     method: "POST",
     headers: {
@@ -64,7 +64,7 @@ const deleteUser = async (userid) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      id: userid,
+      id,
     })
   });
 

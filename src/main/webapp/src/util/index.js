@@ -2,7 +2,7 @@ import { fetchUserList, join, login, ping, fetchAddress, deleteUser } from './us
 import { fetchMenuList, AddMenu } from './menu';
 import { fetchCartList, addCartItem, removeCartItem } from './cart';
 import { createOrder } from './order';
-import { fetchSalesList } from './sale';
+import { fetchSalesList, fetchSalesListByPeriod } from './sale';
 
 export {
   fetchUserList,
@@ -18,4 +18,5 @@ export {
   createOrder,
   deleteUser,
   fetchSalesList,
+  fetchSalesListByPeriod
 };

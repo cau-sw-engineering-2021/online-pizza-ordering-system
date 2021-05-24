@@ -7,7 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { TextField, Button } from '@material-ui/core';
-import {fetchSalesList} from '../util/index';
+import {fetchSalesList, fetchSalesListByPeriod} from '../util/index';
 
 const Saleslist = () => {
 
@@ -32,14 +32,17 @@ const Saleslist = () => {
 };
 
   const getSalesList = (start, end) => {
-    fetchSalesList(start, end).then(data => {
+    console.log(start, end);
+    fetchSalesListByPeriod({start, end}).then(data => {
       console.log(data.saleslist);
       setSalesList(data.saleslist);
     })
   }
 
     useEffect(() => {
-        getSalesList("", "");
+        fetchSalesList.then(data=> {
+          setSalesList(data.saleslist);
+        })
       },[]);
 
     return (
@@ -49,14 +52,17 @@ const Saleslist = () => {
           </div>
           <div>
             <span>매출내역</span>
-            <TextField label="YYYY" variant="outlined" onChange={onChange} value={startYear}/>
-            <TextField label="MM" variant="outlined" onChange={onChange} value={startMonth}/>
-            <TextField label="DD" variant="outlined" onChange={onChange} value={startDay}/>
+            <TextField label="YYYY" variant="outlined" onChange={onChange} value={startYear} id="startYear"/>
+            <TextField label="MM" variant="outlined" onChange={onChange} value={startMonth} id="startMonth"/>
+            <TextField label="DD" variant="outlined" onChange={onChange} value={startDay} id="startDay"/>
             /
-            <TextField label="YYYY" variant="outlined" onChange={onChange} value={endYear}/>
-            <TextField label="MM" variant="outlined" onChange={onChange} value={endMonth}/>
-            <TextField label="DD" variant="outlined" onChange={onChange} value={endDay}/>
-            <Button>적용</Button>
+            <TextField label="YYYY" variant="outlined" onChange={onChange} value={endYear} id="endYear"/>
+            <TextField label="MM" variant="outlined" onChange={onChange} value={endMonth} id="endMonth"/>
+            <TextField label="DD" variant="outlined" onChange={onChange} value={endDay} id="endDay"/>
+            <Button onClick={() => {getSalesList(
+              startYear+"-"+startMonth+"-"+startDay,
+              endYear+"-"+endMonth+"-"+endDay
+            )}}>적용</Button>
           </div>
             <TableContainer component={Paper}>
               <Table aria-label="simple table">
@@ -70,7 +76,7 @@ const Saleslist = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {salesList.map((sales) => (
+                  {salesList && salesList.map((sales) => (
                     <TableRow key={sales.name}>
                       <TableCell component="th" scope="row">
                         {sales.name}

@@ -1,5 +1,18 @@
 import { apiserver } from '../../package.json';
-const fetchSalesList = async ({
+
+const fetchSalesList = async () => {
+  const response = await fetch(`${apiserver}/sales/getsaleslist`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      'Accept': "application/json"
+    }
+  });
+  console.log(response);
+  return await response.json();
+}
+
+const fetchSalesListByPeriod = async ({
   /* ?? I Don't know about it */
   start, end,
 }) => {
@@ -17,4 +30,5 @@ const fetchSalesList = async ({
 
 export {
   fetchSalesList,
+  fetchSalesListByPeriod,
 }
