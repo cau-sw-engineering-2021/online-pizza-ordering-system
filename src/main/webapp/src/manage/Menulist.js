@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import styled from 'styled-components';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -6,10 +7,27 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
+import {Button, Typography} from '@material-ui/core';
 import {BorderColorSharp, DeleteForeverSharp} from '@material-ui/icons';
 import {fetchMenuList} from '../util/index';
 import AddMenuDialog from './AddMenuDialog';
+
+const Header = styled.div`
+max-width: 1280px;
+margin: 0 auto;
+display: flex;
+justify-content: center;
+align-items:  center;
+font: 30px bold sans-serif;
+`
+const Footer = styled.div`
+max-width: 1280px;
+margin: 0 auto;
+display: flex;
+justify-content: center;
+align-items: center;
+font: 15px bold sans-serif;
+`
 
 const Menulist = () => {
 
@@ -21,7 +39,11 @@ const Menulist = () => {
   };
 
   const handleClose = () => {
-    setDialogOpen(false);
+    fetchMenuList().then(data => {
+      setMenuList(data.menulist);
+      setDialogOpen(false);
+    })
+    
   };
 
     useEffect(() => {
@@ -29,13 +51,15 @@ const Menulist = () => {
           console.log(data.menulist);
           setMenuList(data.menulist);
         })
-      },[dialogOpen]);
+      },[]);
 
     return (
         <div>
-          <div>
-              <span>Pizza Management</span>
-          </div>
+          <Header>
+            <Typography variant="h4" align="center" style={{ margin: "1em 0" }}>
+              Menu Management
+            </Typography>
+        </Header>
             <TableContainer component={Paper}>
               <Table aria-label="simple table">
                 <TableHead>
@@ -64,9 +88,9 @@ const Menulist = () => {
                 </TableBody>
               </Table>
             </TableContainer>
-            <div>
+            <Footer>
               <Button onClick = {() => {handleClickOpen()}}>추가</Button>
-            </div>
+            </Footer>
             <AddMenuDialog open={dialogOpen} handleClose={handleClose}/>
         </div>
     );

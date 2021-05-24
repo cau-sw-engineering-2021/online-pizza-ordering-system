@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import styled from 'styled-components';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -6,9 +7,19 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import {Typography} from '@material-ui/core';
 import {BorderColorSharp, DeleteForeverSharp} from '@material-ui/icons';
 import {fetchUserList} from '../util/index';
 import DeleteUserDialog from './DeleteUserDialog';
+
+const Header = styled.div`
+maxWidth: 1280px;
+margin: 0 auto;
+display: flex;
+justify-content: center;
+align-items:  center;
+font: 30px bold sans-serif;
+`
 
 const UserList = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -21,7 +32,10 @@ const UserList = () => {
   };
 
   const handleClose = () => {
-    setDialogOpen(false);
+    fetchUserList().then(data => {
+      setUserList(data.userlist);
+      setDialogOpen(false);
+    });
   };
 
 
@@ -30,13 +44,15 @@ const UserList = () => {
       console.log(data.userlist);
       setUserList(data.userlist);
     });
-  },[dialogOpen]);
+  },[]);
 
   return (
       <div>
-        <div>
-            <span>User Management</span>
-        </div>
+        <Header>
+          <Typography variant="h4" align="center" style={{ margin: "1em 0" }}>
+            User Management
+          </Typography>
+        </Header>
           <TableContainer component={Paper}>
             <Table aria-label="simple table">
               <TableHead>
@@ -66,7 +82,6 @@ const UserList = () => {
             </Table>
            </TableContainer>
            <DeleteUserDialog open={dialogOpen} userNickname={id} handleClose={handleClose}/>
-         <div>추가</div>
       </div>
   );
 }

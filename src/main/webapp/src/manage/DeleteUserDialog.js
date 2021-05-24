@@ -16,11 +16,11 @@ const DeleteUserDialog = ({open, userNickname, handleClose}) => {
       console.log(id);
       deleteUser(id).then(data => {
         console.log(data);
+        handleClose();
       })
     } catch (e) {
         console.log(e);
     }
-    handleClose();
   };
 
   return (

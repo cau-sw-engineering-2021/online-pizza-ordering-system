@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import styled from 'styled-components';
 import {
     Button,
     Dialog,
@@ -7,26 +8,16 @@ import {
     DialogContentText,
     DialogTitle,
     TextField,
-    Card,
-    CardMedia,
 }
 from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import {AddMenu} from '../util/index';
 
-const useStyles = makeStyles(() => ({
-    root: {
-      maxWidth: 345,
-    },
-    media: {
-      height: 0,
-      paddingTop: '56.25%', // 16:9
-    }
-}));
+const MenuImg = styled.img`
+  display: block;
+  width: 80%;
+`;
 
 const AddMenuDialog = ({open, handleClose}) => {
-  
-  const classes = useStyles();
 
   const [inputs, setInputs] = useState({
       name: "",
@@ -42,11 +33,12 @@ const AddMenuDialog = ({open, handleClose}) => {
     try {
       AddMenu(menuData).then(data => {
         console.log(data);
+        handleClose();
       })
     } catch (e) {
         console.log(e);
     }
-    handleClose();
+    resetInput();
   };
 
   const onChange = (e) => {
@@ -56,6 +48,16 @@ const AddMenuDialog = ({open, handleClose}) => {
           [id]: value
       });
   };
+
+  const resetInput = () => {
+    setInputs({
+      name: "",
+      largePrice: 0,
+      mediumPrice: 0,
+      smallPrice: 0,
+      imgUrl: "",
+    })
+  }
 
   return (
     <div>
@@ -120,9 +122,7 @@ const AddMenuDialog = ({open, handleClose}) => {
             value={imgUrl}
             fullWidth
             />
-            <Card className={classes.root}>
-                <CardMedia className={classes.media} src={imgUrl} onClick={() => {console.log(imgUrl)}}/>
-            </Card>
+            <MenuImg src={imgUrl} />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary" autoFocus>
