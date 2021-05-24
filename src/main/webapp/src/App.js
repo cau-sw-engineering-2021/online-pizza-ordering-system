@@ -8,6 +8,7 @@ import Manager from "./manage/Manager";
 import UserList from "./manage/UserList";
 import Menulist from "./manage/Menulist";
 import SalesList from "./manage/SalesList";
+import CartPage from "./cart/CartPage";
 
 // TODO: 백엔드와 데이터 형식 조율, 비동기 처리로 변경
 const menuList = [
@@ -50,6 +51,9 @@ function App() {
           </Route>
           <Route path="/menu/:id">
             <MenuDetail />
+          </Route>
+          <Route path="/cart">
+            <CartPage />
           </Route>
           <Route exact path="/manager">
             <Manager />
