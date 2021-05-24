@@ -17,7 +17,7 @@ function MenuList({ menuList = [] }) {
 
       <MenuGrid container spacing={2} className="menu-list">
         {menuList.map((menu) => (
-          <MenuItem menu={menu} />
+          <MenuItem key={menu.id} menu={menu} />
         ))}
       </MenuGrid>
     </main>
