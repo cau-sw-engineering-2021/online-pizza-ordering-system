@@ -1,4 +1,5 @@
 package com.example.pizzaordering.controller.management;
+import com.example.pizzaordering.dto.OrderDto;
 import com.example.pizzaordering.repository.OrderRepository;
 import com.example.pizzaordering.service.management.DisplaySalesOperator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import java.text.ParseException;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import com.example.pizzaordering.vo.Order;
 
 @CrossOrigin("*")
@@ -39,7 +42,7 @@ public class SaleController {
         ResponseEntity<Object> retval = null;
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("msg", "success");
-        List<Order> sales = orderRepository.findAllByOrderByLastUpdateTime();
+        List<OrderDto> sales = orderRepository.findAllByOrderByLastUpdateTime().stream().map(OrderDto::of).collect(Collectors.toList());
         result.put("sales", sales);
         retval = new ResponseEntity<Object>(result, HttpStatus.OK);
         return retval;
