@@ -14,12 +14,10 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 
 import { fetchOrderList,
-  login,
   acceptOrder,
   rejectOrder,
   completeCook,
   serveOrder,
-  startDelivery,
   completeDelivery,
   emergency,
 } from '../util';
@@ -112,7 +110,7 @@ export default function OrderList() {
     setOrderList(order);
   };
 
-  React.useEffect(async () => {
+  React.useEffect(() => {
     setInterval(refreshOrder, 5000);
     refreshOrder();
   }, []);
