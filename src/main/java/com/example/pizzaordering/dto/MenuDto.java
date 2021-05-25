@@ -8,6 +8,5 @@ public class MenuDto {
     private String largeprice;
     private String mediumprice;
     private String smallprice;
-    private String detail;
     private String imgUrl;
 }
