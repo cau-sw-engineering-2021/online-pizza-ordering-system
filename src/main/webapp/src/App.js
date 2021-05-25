@@ -3,11 +3,12 @@ import MenuDetail from "./menu/MenuDetail";
 import MenuList from "./menu/MenuList";
 import Navigation from "./navigation/Navigation";
 import OrderList from "./OrderList";
-import { SignIn, SignUp } from "./Login";
+import { SignIn, SignUp, Logout } from "./Login";
 import Manager from "./manage/Manager";
 import UserList from "./manage/UserList";
 import Menulist from "./manage/Menulist";
 import SalesList from "./manage/SalesList";
+import { JwtProvider } from "./contexts/JwtProvider";
 
 // TODO: 백엔드와 데이터 형식 조율, 비동기 처리로 변경
 const menuList = [
@@ -31,41 +32,46 @@ const menuList = [
 
 function App() {
   return (
-    <div className="App">
-      <Router basename="/pizza">
-        {/* TODO: Set user information with Context API */}
-        <Navigation isLoggedIn={true} />
-        <Switch>
-          <Route exact path="/">
-            <MenuList menuList={menuList} />
-          </Route>
-          <Route exact path="/login">
-            <SignIn />
-          </Route>
-          <Route exact path="/signup">
-            <SignUp />
-          </Route>
-          <Route exact path="/order">
-            <OrderList />
-          </Route>
-          <Route path="/menu/:id">
-            <MenuDetail />
-          </Route>
-          <Route exact path="/manager">
-            <Manager />
-          </Route>
-          <Route exact path="/manager/user">
-            <UserList />
-          </Route>
-          <Route exact path="/manager/menu">
-            <Menulist />
-          </Route>
-          <Route exact path="/manager/sales">
-            <SalesList />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+    <JwtProvider>
+      <div className="App">
+        <Router basename="/pizza">
+          {/* TODO: Set user information with Context API */}
+          <Navigation/>
+          <Switch>
+            <Route exact path="/">
+              <MenuList menuList={menuList} />
+            </Route>
+            <Route exact path="/login">
+              <SignIn />
+            </Route>
+            <Route exact path="/signup">
+              <SignUp />
+            </Route>
+            <Route exact path="/logout">
+              <Logout />
+            </Route>
+            <Route exact path="/order">
+              <OrderList />
+            </Route>
+            <Route path="/menu/:id">
+              <MenuDetail />
+            </Route>
+            <Route exact path="/manager">
+              <Manager />
+            </Route>
+            <Route exact path="/manager/user">
+              <UserList />
+            </Route>
+            <Route exact path="/manager/menu">
+              <Menulist />
+            </Route>
+            <Route exact path="/manager/sales">
+              <SalesList />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    </JwtProvider>
   );
 }
 
