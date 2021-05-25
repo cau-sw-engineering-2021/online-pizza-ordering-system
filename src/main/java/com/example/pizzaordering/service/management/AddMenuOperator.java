@@ -19,16 +19,19 @@ public class AddMenuOperator {
         smallMenu.setName(menuDto.getName());
         smallMenu.setPrice(Integer.parseInt(menuDto.getSmallprice()));
         smallMenu.setDetail(menuDto.getDetail());
+        smallMenu.setSize("small");
         smallMenu.setImgLocation(menuDto.getImgUrl());
 
         mediumMenu.setName(menuDto.getName());
         mediumMenu.setPrice(Integer.parseInt(menuDto.getMediumprice()));
         mediumMenu.setDetail(menuDto.getDetail());
+        mediumMenu.setSize("medium");
         mediumMenu.setImgLocation(menuDto.getImgUrl());
 
         largeMenu.setName(menuDto.getName());
         largeMenu.setPrice(Integer.parseInt(menuDto.getLargeprice()));
         largeMenu.setDetail(menuDto.getDetail());
+        largeMenu.setSize("large");
         largeMenu.setImgLocation(menuDto.getImgUrl());
         menuRepository.save(smallMenu);
         menuRepository.save(mediumMenu);
