@@ -7,6 +7,8 @@ import javax.persistence.*;
 import javax.transaction.Transactional;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -23,10 +25,12 @@ public class User {
     private String password;
     private Role role;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Order> orderList;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval=true)
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private List<CartItem> cartItemList;
 
     public User(String name, String nickname, String phoneNum, String address, String email, String password,Role role) {

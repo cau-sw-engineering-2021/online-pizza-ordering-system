@@ -13,7 +13,16 @@ import Button from '@material-ui/core/Button';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 
-import { fetchOrderList, login } from '../util';
+import { fetchOrderList,
+  login,
+  acceptOrder,
+  rejectOrder,
+  completeCook,
+  serveOrder,
+  startDelivery,
+  completeDelivery,
+  emergency,
+} from '../util';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -32,10 +41,6 @@ const StyledTableRow = withStyles((theme) => ({
     },
   },
 }))(TableRow);
-
-function createData(orderId, lastUpdatedTime, preview, totalPrice, deliveryType, orderStatus) {
-  return { orderId, lastUpdatedTime, preview, totalPrice, deliveryType, orderStatus};
-}
 
 const useStyles = makeStyles((theme) => ({
   table: {
@@ -80,16 +85,9 @@ function DetailDialog(props) {
                   </StyledTableRow>
                 ));
 
-                const detailItem = (<StyledTableRow key={`detail-${menu.id}`}>
-                  <StyledTableCell> {menu.detail} </StyledTableCell>
-                  <StyledTableCell> </StyledTableCell>
-                  </StyledTableRow>
-                );
-
                 return (<>
                   {mainItem}
                   {optionItem}
-                  + (고객 요청 사항){detailItem}
                 </>);
               }) :
               ''
@@ -108,15 +106,15 @@ export default function OrderList() {
   const [dialogData, setDialogData] = React.useState({});
   const [orderList, setOrderList] = React.useState([]);
 
+  const jwt = 'dummy';
+  const refreshOrder = async () => {
+    const { order } = await fetchOrderList({ jwt });
+    setOrderList(order);
+  };
+
   React.useEffect(async () => {
-    const { jwt }= await login({
-      id: "lmu",
-      password: "test"
-    });
-    setInterval(async () => {
-      const { order } = await fetchOrderList({ jwt });
-      setOrderList(order);
-    }, 1000);
+    setInterval(refreshOrder, 5000);
+    refreshOrder();
   }, []);
 
   const handleClickOpen = (order) => {
@@ -145,13 +143,19 @@ export default function OrderList() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {orderList.map((order) => (
+            {orderList.map((order) => {
+              const d = new Date(order.lastUpdateTime);
+              return (
               <StyledTableRow key={order.id}>
                 <StyledTableCell> {order.id} </StyledTableCell>
-                <StyledTableCell>{order.lastUpdateTime}</StyledTableCell>
                 <StyledTableCell>
-                  {order.itemList.map(item=> `${item.menu.name}(${item.menu.detail}) x ${item.count}`)
-                  .reduce((acc, cur) => (acc + "," + cur), '') }
+                  {d.toLocaleDateString('ko-KR')}
+                  <br />
+                  {d.toLocaleTimeString('ko-KR')}
+                </StyledTableCell>
+                <StyledTableCell>
+                  {Array.isArray(order.itemList) ? order.itemList.map(item=> `${item.menu.name}(${item.menu.detail}) x ${item.count}`)
+                      .reduce((acc, cur) => (`${acc}${cur},`), '') : '' }
                   <Button
                     variant="contained"
                     color="primary"
@@ -164,21 +168,22 @@ export default function OrderList() {
                 <StyledTableCell>{order.deliveryType}</StyledTableCell>
                 <StyledTableCell>{order.orderStatus}</StyledTableCell>
                 <StyledTableCell>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                  >
-                    수령
-                  </Button>
-                  <Button
+                  { order.orderStatus === "ORDERED" ? <Button variant="contained" color="primary" onClick={()=>{acceptOrder({orderId : order.id, jwt}); refreshOrder(); }}> 주문 수락 </Button> : "" }
+                  { order.orderStatus === "ORDERED" ? <Button variant="contained" color="secondary" onClick={()=>{rejectOrder({orderId : order.id, jwt}); refreshOrder(); }}> 주문 거절 </Button> : "" }
+                  { order.orderStatus === "ACCEPTED" ? <Button variant="contained" color="primary" onClick={()=>{completeCook({orderId : order.id, jwt}); refreshOrder(); }}> 조리 완료 </Button> : "" }
+                  { order.orderStatus === "COOK_COMPLETED" ? <Button variant="contained" color="primary" onClick={()=>{serveOrder({orderId : order.id, jwt}); refreshOrder(); }}> 수령완료 </Button> : "" }
+                  { order.orderStatus === "DELIVERING" && order.deliveryType === "DELIVERY" ? <Button variant="contained" color="primary" onClick={()=>{completeDelivery({orderId: order.id, jwt}); refreshOrder();}}> 배달완료 </Button> : "" }
+                  { order.orderStatus === "ORDERED" || order.orderStatus === "ACCEPTED" || order.orderStatus === "COOK_COMPLETED" || order.orderStatus === "DELIVERING" ? <Button
                     variant="contained"
                     color="secondary"
+                    onClick={()=>{emergency({orderId: order.id, jwt}); refreshOrder(); }}
                   >
-                    반려
-                  </Button>
+                    긴급 거부
+                  </Button> : '' }
                 </StyledTableCell>
               </StyledTableRow>
-            ))}
+            );})
+            }
           </TableBody>
         </Table>
       </TableContainer>

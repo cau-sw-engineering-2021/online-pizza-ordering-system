@@ -51,18 +51,130 @@ public class OrderStatusController {
         return retval;
     }
 
-    @PostMapping("/order/change-status")
-    public ResponseEntity<Object> changeOrderStatus(Map<String, Object> param) {
+    @PostMapping("/order/accept")
+    public ResponseEntity<Object> acceptOrder(@RequestBody Map<String, Object> param) {
         ResponseEntity<Object> retval = null;
         Map<String, Object> result = new HashMap<String, Object>();
-        Long orderId = (Long)param.get("orderId");
-        String nextState = (String)param.get("nextState");
-        if (orderlist.updateOrderStatus(orderId, nextState)) {
-            result.put("msg", "success");
-        } else {
-            result.put("msg", "fail");
+        try {
+            Long orderId = Long.valueOf((Integer)param.get("orderId"));
+            if (orderlist.updateOrderStatus(orderId, "ACCEPTED")) {
+                result.put("msg", "success");
+            } else {
+                result.put("msg", "fail");
+            }
+        } catch (Exception e) {
+            result.put("msg", e.toString());
         }
         retval = new ResponseEntity<Object>(result, HttpStatus.OK);
         return retval;
     }
+
+    @PostMapping("/order/reject")
+    public ResponseEntity<Object> rejectOrder(@RequestBody Map<String, Object> param) {
+        ResponseEntity<Object> retval = null;
+        Map<String, Object> result = new HashMap<String, Object>();
+        try {
+            Long orderId = Long.valueOf((Integer)param.get("orderId"));
+            if (orderlist.updateOrderStatus(orderId, "REJECTED")) {
+                result.put("msg", "success");
+            } else {
+                result.put("msg", "fail");
+            }
+        } catch (Exception e) {
+            result.put("msg", e.toString());
+        }
+        retval = new ResponseEntity<Object>(result, HttpStatus.OK);
+        return retval;
+    }
+
+    @PostMapping("/order/complete-cook")
+    public ResponseEntity<Object> completeCook(@RequestBody Map<String, Object> param) {
+        ResponseEntity<Object> retval = null;
+        Map<String, Object> result = new HashMap<String, Object>();
+        try {
+            Long orderId = Long.valueOf((Integer)param.get("orderId"));
+            if (orderlist.updateOrderStatus(orderId, "COOK_COMPLETED")) {
+                result.put("msg", "success");
+            } else {
+                result.put("msg", "fail");
+            }
+        } catch (Exception e) {
+            result.put("msg", e.toString());
+        }
+        retval = new ResponseEntity<Object>(result, HttpStatus.OK);
+        return retval;
+    }
+
+    @PostMapping("/order/serve")
+    public ResponseEntity<Object> serveOrder(@RequestBody Map<String, Object> param) {
+        ResponseEntity<Object> retval = null;
+        Map<String, Object> result = new HashMap<String, Object>();
+        try {
+            Long orderId = Long.valueOf((Integer)param.get("orderId"));
+            if (orderlist.updateOrderStatus(orderId, "SERVED")) {
+                result.put("msg", "success");
+            } else {
+                result.put("msg", "fail");
+            }
+        } catch (Exception e) {
+            result.put("msg", e.toString());
+        }
+        retval = new ResponseEntity<Object>(result, HttpStatus.OK);
+        return retval;
+    }
+
+    @PostMapping("/order/start-delivery")
+    public ResponseEntity<Object> startDelivery(@RequestBody Map<String, Object> param) {
+        ResponseEntity<Object> retval = null;
+        Map<String, Object> result = new HashMap<String, Object>();
+        try {
+            Long orderId = Long.valueOf((Integer)param.get("orderId"));
+            if (orderlist.updateOrderStatus(orderId, "DELIVERING")) {
+                result.put("msg", "success");
+            } else {
+                result.put("msg", "fail");
+            }
+        } catch (Exception e) {
+            result.put("msg", e.toString());
+        }
+        retval = new ResponseEntity<Object>(result, HttpStatus.OK);
+        return retval;
+    }
+
+    @PostMapping("/order/complete-delivery")
+    public ResponseEntity<Object> completeDelivery(@RequestBody Map<String, Object> param) {
+        ResponseEntity<Object> retval = null;
+        Map<String, Object> result = new HashMap<String, Object>();
+        try {
+            Long orderId = Long.valueOf((Integer)param.get("orderId"));
+            if (orderlist.updateOrderStatus(orderId, "DELIVERY_COMPLETED")) {
+                result.put("msg", "success");
+            } else {
+                result.put("msg", "fail");
+            }
+        } catch (Exception e) {
+            result.put("msg", e.toString());
+        }
+        retval = new ResponseEntity<Object>(result, HttpStatus.OK);
+        return retval;
+    }
+
+    @PostMapping("/order/emergency")
+    public ResponseEntity<Object> emergency(@RequestBody Map<String, Object> param) {
+        ResponseEntity<Object> retval = null;
+        Map<String, Object> result = new HashMap<String, Object>();
+        try {
+            Long orderId = Long.valueOf((Integer)param.get("orderId"));
+            if (orderlist.updateOrderStatus(orderId, "INVALID")) {
+                result.put("msg", "success");
+            } else {
+                result.put("msg", "fail");
+            }
+        } catch (Exception e) {
+            result.put("msg", e.toString());
+        }
+        retval = new ResponseEntity<Object>(result, HttpStatus.OK);
+        return retval;
+    }
+
 }
