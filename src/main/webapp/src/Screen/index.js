@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -7,6 +7,8 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+
+import { fetchDisplayOrderList } from '../util';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -26,36 +28,14 @@ const StyledTableRow = withStyles((theme) => ({
   }
 }))(TableRow);
 
-// just for test
-function createData(orderID, orderstatus, shouldDeliver) {
-  return { orderID, orderstatus, shouldDeliver };
-}
-
-function isPreparing(orderID, orderstatus, shouldDeliver) {
-  if (orderstatus === "order accepted" && shouldDeliver === false) return true;
+function isPreparing(orderID, orderstatus, deliveryType) {
+  if (orderstatus === "ACCEPTED" && deliveryType === "PICKUP") return true;
   return false;
 }
-function isComplete(orderID, orderstatus, shouldDeliver) {
-  if (orderstatus === "cook completed" && shouldDeliver === false) return true;
+function isComplete(orderID, orderstatus, deliveryType) {
+  if (orderstatus === "COOK_COMPLETED" && deliveryType === "PICKUP") return true;
   return false;
 }
-
-// just for test
-// should get from the DB
-const initOrderList = [
-  createData(1, "ordered", true),
-  createData(2, "canceled", true),
-  createData(3, "cook completed", true),
-  createData(4, "order accepted", false),
-  createData(5, "cook completed", false),
-  createData(6, "order accepted", true),
-  createData(7, "ordered", false),
-  createData(8, "cook completed", true),
-  createData(9, "served", true),
-  createData(10, "delivering", false),
-  createData(11, "delivery completed", false),
-  createData(12, "invalid", false)
-];
 
 const useStyles = makeStyles({
   table: {
@@ -65,21 +45,31 @@ const useStyles = makeStyles({
 
 export default function CustomizedTables() {
   const classes = useStyles();
-  const preparingList = initOrderList.filter(
+  const [orderList, setOrderList] = useState([]);
+  const refreshOrder = async () => {
+    const { order } = await fetchDisplayOrderList();
+    setOrderList(order);
+  };
+
+  useEffect(()=> {
+    refreshOrder();
+  }, []);
+
+  const preparingList = orderList.filter(
     (element) =>
       isPreparing(
-        element.orderID,
-        element.orderstatus,
-        element.shouldDeliver
-      ) === true
+        element.id,
+        element.orderStatus,
+        element.deliveryType,
+      )
   );
-  const completeList = initOrderList.filter(
+  const completeList = orderList.filter(
     (element) =>
       isComplete(
-        element.orderID,
-        element.orderstatus,
-        element.shouldDeliver
-      ) === true
+        element.id,
+        element.orderStatus,
+        element.deliveryType,
+      )
   );
 
   return (
@@ -94,7 +84,7 @@ export default function CustomizedTables() {
           {preparingList.map((row) => (
             <StyledTableRow>
               <StyledTableCell component="th" scope="row">
-                {row.orderID}
+                {row.id}
               </StyledTableCell>
             </StyledTableRow>
           ))}
@@ -111,7 +101,7 @@ export default function CustomizedTables() {
           {completeList.map((row) => (
             <StyledTableRow>
               <StyledTableCell component="th" scope="row">
-                {row.orderID}
+                {row.id}
               </StyledTableCell>
             </StyledTableRow>
           ))}

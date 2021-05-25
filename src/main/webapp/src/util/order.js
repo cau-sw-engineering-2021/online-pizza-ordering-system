@@ -14,6 +14,14 @@ const createOrder = async ({
   return await response.json();
 }
 
+const fetchDisplayOrderList = async () => {
+  const response = await fetch(`${apiserver}/order/display`, {
+    method: "GET",
+  });
+
+  return await response.json();
+}
+
 const fetchOrderList = async ({ jwt }) => {
   const response = await fetch(`${apiserver}/order`, {
     method: "GET",
@@ -120,6 +128,7 @@ const emergency = async ({ orderId, jwt }) => {
 export {
   createOrder,
   fetchOrderList,
+  fetchDisplayOrderList,
   acceptOrder,
   rejectOrder,
   completeCook,

@@ -3,6 +3,7 @@ import MenuDetail from "./menu/MenuDetail";
 import MenuList from "./menu/MenuList";
 import Navigation from "./navigation/Navigation";
 import OrderList from "./OrderList";
+import Screen from "./Screen";
 import { SignIn, SignUp } from "./Login";
 
 // TODO: 백엔드와 데이터 형식 조율, 비동기 처리로 변경
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route exact path="/order">
             <OrderList />
+          </Route>
+          <Route exact path="/screen">
+            <Screen />
           </Route>
           <Route path="/menu/:id">
             <MenuDetail />
