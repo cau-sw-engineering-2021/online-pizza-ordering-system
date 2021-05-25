@@ -1,6 +1,4 @@
-import React, {useEffect, useState, useEffect} from 'react';
-import styled from 'styled-components';
-import {makeStyles} from '@material-ui/core/styles';
+import React, {useState} from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -9,22 +7,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import {BorderColorSharp, DeleteForeverSharp} from '@material-ui/icons';
-import {fetchUserList, deleteUser} from '../util/index';
-import DeleteDialog from './DeleteDIalog';
+import {fetchUserList} from '../util/index';
+import DeleteDialog from './DeleteDialog';
 
-function createData(name, phone, role) {
-  return { name, phone, role };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 4.0),
-  createData('Ice cream sandwich', 237, 9.0),
-  createData('Eclair', 262, 16.0),
-  createData('Cupcake', 305, 3.7),
-  createData('Gingerbread', 356, 16.0),
-];
-
-const Userlist = () => {
+const UserList = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [userList, setUserList] = useState(null);
   const [id, setId] = useState(0);
@@ -38,16 +24,14 @@ const Userlist = () => {
     setDialogOpen(false);
   };
 
-  useEffect(() => {
     try {
-      fetchUserList.then(data => {
-        console.log(data);
-        //setUserList(data);
-      })
+      fetchUserList().then(data => {
+        console.log(data.userlist);
+        setUserList(data.userlist);
+      });
     } catch(e) {
         console.log(e);
     }
-  }, []);
 
   if (!userList) {
     return null;
@@ -62,24 +46,26 @@ const Userlist = () => {
             <Table aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell>이름</TableCell>
-                  <TableCell>번호</TableCell>
-                  <TableCell>Role</TableCell>
-                  <TableCell>  </TableCell>
-                   <TableCell>  </TableCell>
+                  <TableCell>Name</TableCell>
+                  <TableCell>Nickname</TableCell>
+                  <TableCell> PhoneNum</TableCell>
+                  <TableCell>Address</TableCell>
+                  <TableCell>E-mail</TableCell>
                  </TableRow>
               </TableHead>
               <TableBody>
                 {userList.map((user) => (
-                  <TableRow key={user.id}>
+                  <TableRow key={user.nickname}>
                      <TableCell component="th" scope="row">
-                        {row.name}
+                        {user.name}
                     </TableCell>
                     <TableCell align="right">{user.name}</TableCell>
-                     <TableCell align="right">{user.phone}</TableCell>
-                     <TableCell align="right">{user.role}</TableCell>
-                     <TableCell><BorderColorSharp /></TableCell>
-                     <TableCell><DeleteForeverSharp onClick={handleClickOpen(user.id)}/></TableCell>
+                    <TableCell align="right">{user.nickname}</TableCell>
+                    <TableCell align="right">{user.phoneNum}</TableCell>
+                    <TableCell align="right">{user.address}</TableCell>
+                    <TableCell align="right">{user.email}</TableCell>
+                    <TableCell><BorderColorSharp /></TableCell>
+                    <TableCell><DeleteForeverSharp onClick={handleClickOpen(user.id)}/></TableCell>
                    </TableRow>
                  ))}
                </TableBody>
@@ -91,4 +77,4 @@ const Userlist = () => {
   );
 }
 
-export default Userlist;
+export default UserList;

@@ -63,27 +63,16 @@ export default function SignUp() {
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
                 autoComplete="fname"
-                name="firstName"
+                name="name"
                 variant="outlined"
                 required
                 fullWidth
-                id="firstName"
-                label="First Name"
+                id="name"
+                label="Name"
                 autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
               />
             </Grid>
             <Grid item xs={12}>
@@ -94,7 +83,6 @@ export default function SignUp() {
                 id="userID"
                 label="ID"
                 name="userID"
-                autoComplete="userID"
               />
             </Grid>
             <Grid item xs={12}>
@@ -106,7 +94,17 @@ export default function SignUp() {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="confirm password"
+                label="Confrim Passwrod"
+                type="password"
+                id="confirm password"
               />
             </Grid>
             <Grid item xs={12}>
@@ -117,7 +115,6 @@ export default function SignUp() {
                 id="email"
                 label="Email Address"
                 name="email"
-                autoComplete="email"
               />
             </Grid>
             <Grid item xs={12}>
@@ -128,7 +125,6 @@ export default function SignUp() {
                 id="phoneNum"
                 label="Phone Number"
                 name="phoneNum"
-                autoComplete="phoneNum"
               />
             </Grid>
             <Grid item xs={12}>
@@ -139,7 +135,6 @@ export default function SignUp() {
                 id="address"
                 label="Address"
                 name="address"
-                autoComplete="address"
               />
             </Grid>
             <Grid item xs={12}>
@@ -160,7 +155,7 @@ export default function SignUp() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/login" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>

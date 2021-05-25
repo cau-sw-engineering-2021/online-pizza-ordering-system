@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
     Button,
     Dialog,
@@ -7,7 +7,7 @@ import {
     DialogContentText,
     DialogTitle}
 from '@material-ui/core';
-import {DeleteForeverSharp} from '@material-ui/icons';
+import {deleteUser} from '../util/index';
 
 const DeleteDialog = ({open, userId, handleClose}) => {
   

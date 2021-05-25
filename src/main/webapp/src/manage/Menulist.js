@@ -1,6 +1,4 @@
-import React, {useEffect, useState, useEffect} from 'react';
-import styled from 'styled-components';
-import {makeStyles} from '@material-ui/core/styles';
+import React, {useEffect, useState} from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -10,62 +8,59 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import {BorderColorSharp, DeleteForeverSharp} from '@material-ui/icons';
-import {fetchMenuList} from '../util/index';
+import {fetchMenuList, AddMenu} from '../util/index';
 
-/*function createData(name, phone, role) {
-  return { name, phone, role };
-}
+const Dummy = {
+  id: 1,
+  name: "포테이토 피자",
+  price: 20000,
+  size: "L",
+  detail: "No Bread",
+  imgLocation: "https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+};
 
-const rows = [
-  createData('Frozen yoghurt', 159, 4.0),
-  createData('Ice cream sandwich', 237, 9.0),
-  createData('Eclair', 262, 16.0),
-  createData('Cupcake', 305, 3.7),
-  createData('Gingerbread', 356, 16.0),
-];
+const Menulist = () => {
 
-const Userlist = () => {
-
-    const [userList, setUserList] = useState(null);
+    const [menuList, setMenuList] = useState(null);
 
     useEffect(() => {
       try {
-        fetchUserList.then(data => {
+        fetchMenuList.then(data => {
           console.log(data);
-          setUserList(data);
+          setMenuList(data);
         })
       } catch(e) {
         console.log(e);
       }
     }, []);
-    if (!userList) {
+    if (!menuList) {
       return null;
     }
     return (
         <div>
           <div>
-              <span>User Management</span>
+              <span>Pizza Management</span>
           </div>
             <TableContainer component={Paper}>
               <Table aria-label="simple table">
                 <TableHead>
                   <TableRow>
                     <TableCell>이름</TableCell>
-                    <TableCell>번호</TableCell>
-                    <TableCell>Role</TableCell>
-                    <TableCell>  </TableCell>
+                    <TableCell>사이즈</TableCell>
+                    <TableCell>가격</TableCell>
+                    <TableCell></TableCell>
                     <TableCell>  </TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {userList.map((user) => (
-                    <TableRow key={user.id}>
+                  {menuList.map((menu) => (
+                    <TableRow key={menu.id}>
                       <TableCell component="th" scope="row">
-                        {row.name}
+                        {menu.name}
                       </TableCell>
-                      <TableCell align="right">{user.name}</TableCell>
-                      <TableCell align="right">{user.phone}</TableCell>
-                      <TableCell align="right">{user.role}</TableCell>
+                      <TableCell align="right">{menu.name}</TableCell>
+                      <TableCell align="right">{menu.price}</TableCell>
+                      <TableCell align="right">{menu.size}</TableCell>
                       <TableCell><BorderColorSharp /></TableCell>
                       <TableCell><DeleteForeverSharp /></TableCell>
                     </TableRow>
@@ -73,41 +68,11 @@ const Userlist = () => {
                 </TableBody>
               </Table>
             </TableContainer>
-            <div>추가</div>
+            <div>
+              <Button onClick = {AddMenu({...Dummy})}>추가</Button>
+            </div>
         </div>
     );
 }
 
-export default Userlist;*/
-
-const Menulist = () => {
-    const [menuList, setMenuList] = useState(null);
-    
-    useEffect(() => {
-        try {
-          fetchMenuList.then(data => {
-            console.log(data);
-            setMenuList(data);
-          })
-        } catch(e) {
-          console.log(e);
-        }
-      }, []);
-      if (!menuList) {
-        return null;
-      }
-      const dummy = {
-        id: 1,
-        name: "포테이토 피자",
-        price: 20000,
-        size: "L",
-        detail: "No Bread",
-        imgLocation: "", 
-      }
-    return (
-        <div>
-            <Button onClick= {} />
-        </div>
-    )
-}
-
+export default Menulist;
