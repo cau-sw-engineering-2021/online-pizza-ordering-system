@@ -28,7 +28,7 @@ public class OrderController {
            : itemList | [{"menuId" : Integer }, {"count" Integer}]
      */
     @PostMapping("/order")
-    public ResponseEntity<Object> order(@RequestParam Order orderInformation,
+    public ResponseEntity<Object> order(@RequestBody Order orderInformation,
                                         @RequestParam List<Map<String, Integer>> itemList) {
 
         ResponseEntity<Object> retval = null;

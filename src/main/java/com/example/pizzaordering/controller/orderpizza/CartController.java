@@ -29,9 +29,9 @@ public class CartController {
     return : true / false
      */
     @PostMapping("/cart/add")
-    public ResponseEntity<Object> addToCart(@RequestParam Menu menu,
+    public ResponseEntity<Object> addToCart(@RequestBody Menu menu,
                                             @RequestParam Integer count,
-                                            @RequestParam List<Option> optionList) {
+                                            @RequestBody List<Option> optionList) {
         ResponseEntity<Object> retval = null;
         Map<String, Object> result = new HashMap<String, Object>();
         try {
