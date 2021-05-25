@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class MenuDto {
     private String name;
-    private int largeprice;
-    private int mediumprice;
-    private int smallprice;
+    private String largeprice;
+    private String mediumprice;
+    private String smallprice;
     private String detail;
     private String imgUrl;
 }
