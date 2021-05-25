@@ -1,4 +1,4 @@
-import { apiserver } from '../../package.json';
+import { apiserver } from "../../package.json";
 const createOrder = async ({
   id,
   /* ?? I Don't know about it */
@@ -8,24 +8,21 @@ const createOrder = async ({
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({id})
+    body: JSON.stringify({ id }),
   });
 
   return await response.json();
-}
+};
 
 const fetchOrderList = async ({ jwt }) => {
   const response = await fetch(`${apiserver}/order`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-    }
+    },
   });
 
   return await response.json();
-}
+};
 
-export {
-  createOrder,
-  fetchOrderList,
-}
+export { createOrder, fetchOrderList };

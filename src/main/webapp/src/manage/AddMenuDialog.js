@@ -1,52 +1,50 @@
-import React, {useState} from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 import {
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
-    TextField,
-}
-from '@material-ui/core';
-import {AddMenu} from '../util/index';
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  TextField,
+} from "@material-ui/core";
+import { AddMenu } from "../util/index";
 
 const MenuImg = styled.img`
   display: block;
   width: 80%;
 `;
 
-const AddMenuDialog = ({open, handleClose}) => {
-
+const AddMenuDialog = ({ open, handleClose }) => {
   const [inputs, setInputs] = useState({
-      name: "",
-      largePrice: 0,
-      mediumPrice: 0,
-      smallPrice: 0,
-      imgUrl: "",
+    name: "",
+    largePrice: 0,
+    mediumPrice: 0,
+    smallPrice: 0,
+    imgUrl: "",
   });
 
-  const {name, largePrice, mediumPrice, smallPrice, imgUrl} = inputs;
+  const { name, largePrice, mediumPrice, smallPrice, imgUrl } = inputs;
 
   const onAddClick = (menuData) => {
     try {
-      AddMenu(menuData).then(data => {
+      AddMenu(menuData).then((data) => {
         console.log(data);
         handleClose();
-      })
+      });
     } catch (e) {
-        console.log(e);
+      console.log(e);
     }
     resetInput();
   };
 
   const onChange = (e) => {
-      const { value, id } = e.target;
-      setInputs({
-          ...inputs,
-          [id]: value
-      });
+    const { value, id } = e.target;
+    setInputs({
+      ...inputs,
+      [id]: value,
+    });
   };
 
   const resetInput = () => {
@@ -56,8 +54,8 @@ const AddMenuDialog = ({open, handleClose}) => {
       mediumPrice: 0,
       smallPrice: 0,
       imgUrl: "",
-    })
-  }
+    });
+  };
 
   return (
     <div>
@@ -81,8 +79,8 @@ const AddMenuDialog = ({open, handleClose}) => {
             onChange={onChange}
             value={name}
             fullWidth
-            />
-            <TextField
+          />
+          <TextField
             autoFocus
             margin="dense"
             id="largePrice"
@@ -91,8 +89,8 @@ const AddMenuDialog = ({open, handleClose}) => {
             onChange={onChange}
             value={largePrice}
             fullWidth
-            />
-            <TextField
+          />
+          <TextField
             autoFocus
             margin="dense"
             id="mediumPrice"
@@ -101,8 +99,8 @@ const AddMenuDialog = ({open, handleClose}) => {
             onChange={onChange}
             value={mediumPrice}
             fullWidth
-            />
-            <TextField
+          />
+          <TextField
             autoFocus
             margin="dense"
             id="smallPrice"
@@ -111,8 +109,8 @@ const AddMenuDialog = ({open, handleClose}) => {
             onChange={onChange}
             value={smallPrice}
             fullWidth
-            />
-            <TextField
+          />
+          <TextField
             autoFocus
             margin="dense"
             id="imgUrl"
@@ -121,20 +119,26 @@ const AddMenuDialog = ({open, handleClose}) => {
             onChange={onChange}
             value={imgUrl}
             fullWidth
-            />
-            <MenuImg src={imgUrl} />
+          />
+          <MenuImg src={imgUrl} />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary" autoFocus>
             NO
           </Button>
-          <Button onClick={() => {onAddClick(inputs)}} color="primary" autoFocus>
+          <Button
+            onClick={() => {
+              onAddClick(inputs);
+            }}
+            color="primary"
+            autoFocus
+          >
             YES
           </Button>
         </DialogActions>
       </Dialog>
     </div>
   );
-}
+};
 
 export default AddMenuDialog;
