@@ -83,19 +83,7 @@ const ping = async ({jwt}) => {
   return await response.json();
 }
 
-const fetchUserList = async ({jwt}) => {
-  const response = await fetch(`${apiserver}/user/userlist`, {
-    method: "GET",
-    headers: {
-      "X-AUTH-TOKEN": jwt,
-      "Content-Type": "application/json",
-    }
-  });
-  return await response.json();
-}
-
 export {
-  fetchUserList,
   join,
   login,
   fetchAddress,
