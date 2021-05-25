@@ -1,26 +1,24 @@
-import React from 'react';
+import React from "react";
 import {
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogContentText,
-    DialogTitle}
-from '@material-ui/core';
-import {deleteUser} from '../util/index';
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@material-ui/core";
+import { deleteUser } from "../util/index";
 
-const DeleteUserDialog = ({open, userNickname, handleClose}) => {
-  
+const DeleteUserDialog = ({ open, userNickname, handleClose }) => {
   const onDeleteClick = (id) => {
     try {
-      console.log(id);
-      deleteUser(id).then(data => {
+      deleteUser(id).then((data) => {
         console.log(data);
-      })
+        handleClose();
+      });
     } catch (e) {
-        console.log(e);
+      console.log(e);
     }
-    handleClose();
   };
 
   return (
@@ -41,13 +39,19 @@ const DeleteUserDialog = ({open, userNickname, handleClose}) => {
           <Button onClick={handleClose} color="primary">
             NO
           </Button>
-          <Button onClick={() => {console.log(userNickname); onDeleteClick(userNickname)}} color="primary" autoFocus>
+          <Button
+            onClick={() => {
+              onDeleteClick(userNickname);
+            }}
+            color="primary"
+            autoFocus
+          >
             YES
           </Button>
         </DialogActions>
       </Dialog>
     </div>
   );
-}
+};
 
 export default DeleteUserDialog;

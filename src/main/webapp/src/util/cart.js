@@ -1,4 +1,4 @@
-import { apiserver } from '../../package.json';
+import { apiserver } from "../../package.json";
 
 const fetchCartList = async () => {
   const response = await fetch(`${apiserver}/cart`, {
@@ -6,36 +6,32 @@ const fetchCartList = async () => {
   });
 
   return await response.json();
-}
+};
 
-const addCartItem = async ({jwt, id}) => {
+const addCartItem = async ({ jwt, id }) => {
   const response = await fetch(`${apiserver}/cart/add`, {
     method: "POST",
     headers: {
-      "Content-Type":"application/json",
+      "Content-Type": "application/json",
       "X-AUTH-TOKEN": jwt,
     },
-    body: JSON.stringify({id})
+    body: JSON.stringify({ id }),
   });
 
   return await response.json();
-}
+};
 
-const removeCartItem = async ({jwt, id}) => {
+const removeCartItem = async ({ jwt, id }) => {
   const response = await fetch(`${apiserver}/cart/remove`, {
     method: "POST",
     headers: {
-      "Content-Type":"application/json",
+      "Content-Type": "application/json",
       "X-AUTH-TOKEN": jwt,
     },
-    body: JSON.stringify({id})
+    body: JSON.stringify({ id }),
   });
 
   return await response.json();
-}
+};
 
-export {
-  fetchCartList,
-  addCartItem,
-  removeCartItem,
-}
+export { fetchCartList, addCartItem, removeCartItem };

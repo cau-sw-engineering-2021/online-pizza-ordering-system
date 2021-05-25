@@ -1,60 +1,60 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
+import styled from "styled-components";
 import {
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
-    TextField,
-    Card,
-    CardMedia,
-}
-from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import {AddMenu} from '../util/index';
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  TextField,
+} from "@material-ui/core";
+import { AddMenu } from "../util/index";
 
-const useStyles = makeStyles(() => ({
-    root: {
-      maxWidth: 345,
-    },
-    media: {
-      height: 0,
-      paddingTop: '56.25%', // 16:9
-    }
-}));
+const MenuImg = styled.img`
+  display: block;
+  width: 80%;
+`;
 
-const AddMenuDialog = ({open, handleClose}) => {
-  
-  const classes = useStyles();
-
+const AddMenuDialog = ({ open, handleClose }) => {
   const [inputs, setInputs] = useState({
+    name: "",
+    largePrice: 0,
+    mediumPrice: 0,
+    smallPrice: 0,
+    imgUrl: "",
+  });
+
+  const { name, largePrice, mediumPrice, smallPrice, imgUrl } = inputs;
+
+  const onAddClick = (menuData) => {
+    try {
+      AddMenu(menuData).then((data) => {
+        console.log(data);
+        handleClose();
+      });
+    } catch (e) {
+      console.log(e);
+    }
+    resetInput();
+  };
+
+  const onChange = (e) => {
+    const { value, id } = e.target;
+    setInputs({
+      ...inputs,
+      [id]: value,
+    });
+  };
+
+  const resetInput = () => {
+    setInputs({
       name: "",
       largePrice: 0,
       mediumPrice: 0,
       smallPrice: 0,
       imgUrl: "",
-  });
-
-  const {name, largePrice, mediumPrice, smallPrice, imgUrl} = inputs;
-
-  const onAddClick = (menuData) => {
-    try {
-      AddMenu(menuData).then(data => {
-        console.log(data);
-      })
-    } catch (e) {
-        console.log(e);
-    }
-    handleClose();
-  };
-
-  const onChange = (e) => {
-      const { value, id } = e.target;
-      setInputs({
-          ...inputs,
-          [id]: value
-      });
+    });
   };
 
   return (
@@ -79,8 +79,8 @@ const AddMenuDialog = ({open, handleClose}) => {
             onChange={onChange}
             value={name}
             fullWidth
-            />
-            <TextField
+          />
+          <TextField
             autoFocus
             margin="dense"
             id="largePrice"
@@ -89,8 +89,8 @@ const AddMenuDialog = ({open, handleClose}) => {
             onChange={onChange}
             value={largePrice}
             fullWidth
-            />
-            <TextField
+          />
+          <TextField
             autoFocus
             margin="dense"
             id="mediumPrice"
@@ -99,8 +99,8 @@ const AddMenuDialog = ({open, handleClose}) => {
             onChange={onChange}
             value={mediumPrice}
             fullWidth
-            />
-            <TextField
+          />
+          <TextField
             autoFocus
             margin="dense"
             id="smallPrice"
@@ -109,8 +109,8 @@ const AddMenuDialog = ({open, handleClose}) => {
             onChange={onChange}
             value={smallPrice}
             fullWidth
-            />
-            <TextField
+          />
+          <TextField
             autoFocus
             margin="dense"
             id="imgUrl"
@@ -119,22 +119,26 @@ const AddMenuDialog = ({open, handleClose}) => {
             onChange={onChange}
             value={imgUrl}
             fullWidth
-            />
-            <Card className={classes.root}>
-                <CardMedia className={classes.media} src={imgUrl} onClick={() => {console.log(imgUrl)}}/>
-            </Card>
+          />
+          <MenuImg src={imgUrl} />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary" autoFocus>
             NO
           </Button>
-          <Button onClick={() => {onAddClick(inputs)}} color="primary" autoFocus>
+          <Button
+            onClick={() => {
+              onAddClick(inputs);
+            }}
+            color="primary"
+            autoFocus
+          >
             YES
           </Button>
         </DialogActions>
       </Dialog>
     </div>
   );
-}
+};
 
 export default AddMenuDialog;
