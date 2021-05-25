@@ -1,34 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react";
-import Loading from "../common/Loading";
+import React, { useCallback } from "react";
 import CartList from "./CartList";
 import { Button, Typography } from "@material-ui/core";
 import styled from "styled-components";
 import { useHistory } from "react-router";
-
-const getCartData = async () => [
-  {
-    id: 1,
-    menuId: 1,
-    menuImgSrc:
-      "https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    menuName: "불고기 피자",
-    quantity: 1, // 수량
-    itemPrice: 10200, // 수량 하나 당 가격(피자 + 옵션)
-    size: "L",
-    options: ["치즈 추가", "콜라 1.25L"],
-  },
-  {
-    id: 2,
-    menuId: 2,
-    menuImgSrc:
-      "https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    menuName: "포테이토 피자",
-    quantity: 2,
-    itemPrice: 9800,
-    size: "M",
-    options: [],
-  },
-];
+import useCart from "../hooks/useCart";
 
 const CartContent = styled.section`
   max-width: 1280px;
@@ -62,9 +37,9 @@ const OrderButton = styled(Button)`
 `;
 
 function CartPage() {
-  const [loading, setLoading] = useState(true);
-  const [cartData, setCartData] = useState([]);
   const history = useHistory();
+
+  const [state, actions] = useCart();
 
   const onOrder = useCallback(() => {
     const result = window.confirm("정말 주문하시겠습니까?");
@@ -74,43 +49,33 @@ function CartPage() {
     }
   }, [history]);
 
-  useEffect(() => {
-    getCartData().then((data) => {
-      setCartData(data);
-      setLoading(false);
-    });
-  }, []);
-
   return (
-    <>
-      {loading ? (
-        <Loading />
-      ) : (
-        <main>
-          <Typography variant="h3" align="center" style={{ margin: "1.5em 0" }}>
-            장바구니
-          </Typography>
-          <CartContent>
-            <CartList cartData={cartData} />
-            <section className="CartPanel">
-              <TotalPrice>
-                총{" "}
-                <strong>
-                  {cartData.reduce(
-                    (prev, cur) => (prev += cur.itemPrice * cur.quantity),
-                    0
-                  )}
-                  원
-                </strong>
-              </TotalPrice>
-              <OrderButton variant="outlined" onClick={onOrder}>
-                주문하기
-              </OrderButton>
-            </section>
-          </CartContent>
-        </main>
-      )}
-    </>
+    <main>
+      <Typography variant="h3" align="center" style={{ margin: "1.5em 0" }}>
+        장바구니
+      </Typography>
+      <CartContent>
+        <CartList
+          cartData={state.items}
+          onRemoveItem={(itemId) => actions.removeItem(itemId)}
+        />
+        <section className="CartPanel">
+          <TotalPrice>
+            총{" "}
+            <strong>
+              {state.items.reduce(
+                (prev, cur) => (prev += cur.itemPrice * cur.quantity),
+                0
+              )}
+              원
+            </strong>
+          </TotalPrice>
+          <OrderButton variant="outlined" onClick={onOrder}>
+            주문하기
+          </OrderButton>
+        </section>
+      </CartContent>
+    </main>
   );
 }
 

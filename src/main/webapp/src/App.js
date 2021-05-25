@@ -10,6 +10,7 @@ import Menulist from "./manage/Menulist";
 import SalesList from "./manage/SalesList";
 import CartPage from "./cart/CartPage";
 import OrderPage from "./order/OrderPage";
+import { CartProvider } from "./contexts/CartContext";
 
 // TODO: 백엔드와 데이터 형식 조율, 비동기 처리로 변경
 const menuList = [
@@ -34,45 +35,47 @@ const menuList = [
 function App() {
   return (
     <div className="App">
-      <Router basename="/pizza">
-        {/* TODO: Set user information with Context API */}
-        <Navigation isLoggedIn={true} />
-        <Switch>
-          <Route exact path="/">
-            <MenuList menuList={menuList} />
-          </Route>
-          <Route exact path="/login">
-            <SignIn />
-          </Route>
-          <Route exact path="/signup">
-            <SignUp />
-          </Route>
-          <Route exact path="/order-history">
-            <OrderList />
-          </Route>
-          <Route path="/menu/:id">
-            <MenuDetail />
-          </Route>
-          <Route path="/cart">
-            <CartPage />
-          </Route>
-          <Route path="/order">
-            <OrderPage />
-          </Route>
-          <Route exact path="/manager">
-            <Manager />
-          </Route>
-          <Route exact path="/manager/user">
-            <UserList />
-          </Route>
-          <Route exact path="/manager/menu">
-            <Menulist />
-          </Route>
-          <Route exact path="/manager/sales">
-            <SalesList />
-          </Route>
-        </Switch>
-      </Router>
+      <CartProvider>
+        <Router basename="/pizza">
+          {/* TODO: Set user information with Context API */}
+          <Navigation isLoggedIn={true} />
+          <Switch>
+            <Route exact path="/">
+              <MenuList menuList={menuList} />
+            </Route>
+            <Route exact path="/login">
+              <SignIn />
+            </Route>
+            <Route exact path="/signup">
+              <SignUp />
+            </Route>
+            <Route exact path="/order-history">
+              <OrderList />
+            </Route>
+            <Route path="/menu/:id">
+              <MenuDetail />
+            </Route>
+            <Route path="/cart">
+              <CartPage />
+            </Route>
+            <Route path="/order">
+              <OrderPage />
+            </Route>
+            <Route exact path="/manager">
+              <Manager />
+            </Route>
+            <Route exact path="/manager/user">
+              <UserList />
+            </Route>
+            <Route exact path="/manager/menu">
+              <Menulist />
+            </Route>
+            <Route exact path="/manager/sales">
+              <SalesList />
+            </Route>
+          </Switch>
+        </Router>
+      </CartProvider>
     </div>
   );
 }
