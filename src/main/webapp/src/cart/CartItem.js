@@ -2,7 +2,7 @@ import { Button } from "@material-ui/core";
 import React from "react";
 import styled from "styled-components";
 
-const ItemContainer = styled.li`
+const CartItemBlock = styled.li`
   border: solid 1px #666;
   list-style: none;
   display: flex;
@@ -59,7 +59,7 @@ const RemoveButton = styled(Button)`
 
 function CartItem({ item, onRemove, readonly = false }) {
   return (
-    <ItemContainer className="CartItem">
+    <CartItemBlock className="CartItem">
       <ItemImage src={item.menuImgSrc} alt={item.menuName + "이미지"} />
       <ItemInformation>
         <h1>{item.menuName}</h1>
@@ -83,12 +83,12 @@ function CartItem({ item, onRemove, readonly = false }) {
         </div>
       </ItemInformation>
       <ItemPrice>{item.itemPrice * item.quantity}원</ItemPrice>
-      {readonly ? null : (
-        <RemoveButton color="secondary" onClick={() => console.log(item.id)}>
+      {!readonly && (
+        <RemoveButton color="secondary" onClick={() => onRemove(item.id)}>
           삭제
         </RemoveButton>
       )}
-    </ItemContainer>
+    </CartItemBlock>
   );
 }
 

@@ -3,31 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import styled from "styled-components";
 import CartList from "../cart/CartList";
-
-const getOrderData = async () => [
-  {
-    id: 1,
-    menuId: 1,
-    menuImgSrc:
-      "https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    menuName: "불고기 피자",
-    quantity: 1, // 수량
-    itemPrice: 10200, // 수량 하나 당 가격(피자 + 옵션)
-    size: "L",
-    options: ["치즈 추가", "콜라 1.25L"],
-  },
-  {
-    id: 2,
-    menuId: 2,
-    menuImgSrc:
-      "https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    menuName: "포테이토 피자",
-    quantity: 2,
-    itemPrice: 9800,
-    size: "M",
-    options: [],
-  },
-];
+import useCart from "../hooks/useCart";
 
 const OrderContainer = styled.main`
   max-width: 1280px;
@@ -74,6 +50,7 @@ const OrderList = styled(CartList)`
 
 function OrderPage() {
   const history = useHistory();
+  const [state, actions] = useCart();
   const [orderData, setOrderData] = useState([]);
 
   const [formData, setFormData] = useState({
@@ -91,19 +68,17 @@ function OrderPage() {
   );
 
   const onPayClicked = useCallback(() => {
-    console.log(formData, orderData);
     const result = window.confirm("결제하시겠습니까?");
     if (result) {
       alert("완료되었습니다!");
+      state.items.forEach((item) => actions.removeItem(item.id));
       history.push("");
     }
-  }, [formData, orderData, history]);
+  }, [history, state, actions]);
 
   useEffect(() => {
-    getOrderData().then((data) => {
-      setOrderData(data);
-    });
-  }, []);
+    setOrderData(state.items);
+  }, [state]);
 
   return (
     <>

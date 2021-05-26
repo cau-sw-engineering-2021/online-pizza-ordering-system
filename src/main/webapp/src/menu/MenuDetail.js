@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import React, { useCallback } from "react";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import OptionForm from "../option/OptionForm";
+import useCart from "../hooks/useCart";
 
 function getMenu(id) {
   // Dummy Data
@@ -10,7 +11,7 @@ function getMenu(id) {
     name: "Pizza1",
     price: { L: 20000, M: 11000 },
     size: ["L", "M"],
-    imgSrc:
+    imgLocation:
       "https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     options: [
       {
@@ -103,19 +104,29 @@ const MenuTitle = styled.h1`
 `;
 
 function MenuDetail() {
+  const [, actions] = useCart();
   const { id } = useParams();
+  const history = useHistory();
 
   const menu = getMenu(id);
 
-  const addToCart = useCallback((data) => {
-    // TODO: Add To Cart
-    console.log(data);
-  }, []);
+  const addToCart = useCallback(
+    (data) => {
+      actions.addItem(data);
+
+      const moveToCart = window.confirm("장바구니로 이동하시겠습니까?");
+
+      if (moveToCart) {
+        history.push(`/cart`);
+      }
+    },
+    [actions, history]
+  );
 
   return (
     <DetailContainer className="MenuDetail">
       <ImageSection>
-        <MenuImage src={menu.imgSrc} alt={menu.name} />
+        <MenuImage src={menu.imgLocation} alt={menu.name} />
       </ImageSection>
       <DetailSection>
         <MenuTitle>{menu.name}</MenuTitle>

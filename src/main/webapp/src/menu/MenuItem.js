@@ -42,7 +42,7 @@ function MenuItem({ menu = {} }) {
     <GridItem item md={3}>
       <ItemLink to={`/menu/${menu.id}`}>
         <ItemWrapper>
-          <ItemImg src={menu.imgSrc} alt={menu.name} />
+          <ItemImg src={menu.imgLocation} alt={menu.name} />
           <ItemInfoCont>
             <ItemName>{menu.name}</ItemName>
             <div className="price-cont">
