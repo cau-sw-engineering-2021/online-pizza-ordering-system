@@ -13,4 +13,8 @@ public class Option {
     private Long id;
     private String name;
     private int price;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "item_id")
+    private Item item;
 }

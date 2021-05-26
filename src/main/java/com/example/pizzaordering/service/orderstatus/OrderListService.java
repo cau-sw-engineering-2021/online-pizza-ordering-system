@@ -93,6 +93,7 @@ public class OrderListService {
         // order - item mapping
         orderInformation.setItemList(itemList);
         orderInformation.setOrderStatus("ordered");
+        orderInformation.setLastUpdateTime(new Timestamp(System.currentTimeMillis()));
 
         // user - order mapping
         User user = userService.getUserByName(userService.getUsername());
