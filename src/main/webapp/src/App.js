@@ -10,6 +10,8 @@ import UserList from "./manage/UserList";
 import Menulist from "./manage/Menulist";
 import SalesList from "./manage/SalesList";
 import { JwtProvider } from "./contexts/JwtProvider";
+import CartPage from "./cart/CartPage";
+import OrderPage from "./order/OrderPage";
 
 // TODO: 백엔드와 데이터 형식 조율, 비동기 처리로 변경
 const menuList = [
@@ -50,11 +52,17 @@ function App() {
             <Route exact path="/logout">
               <Logout />
             </Route>
-            <Route exact path="/order">
+            <Route exact path="/order-history">
               <OrderList />
+            </Route>
+            <Route path="/order">
+              <OrderPage />
             </Route>
             <Route exact path="/screen">
               <Screen />
+            </Route>
+            <Route path="/cart">
+              <CartPage />
             </Route>
             <Route path="/menu/:id">
               <MenuDetail />
