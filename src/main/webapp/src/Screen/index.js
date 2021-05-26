@@ -39,7 +39,7 @@ function isComplete(orderID, orderstatus, deliveryType) {
 
 const useStyles = makeStyles({
   table: {
-    maxWidth: 150
+    maxWidth: 300,
   }
 });
 
@@ -73,7 +73,7 @@ export default function CustomizedTables() {
   );
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} style={{display:"flex"}}>
       <Table className={classes.table} aria-label="Preparing">
         <TableHead>
           <TableRow>

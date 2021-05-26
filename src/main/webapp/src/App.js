@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useEffect } from 'react';
 import MenuDetail from "./menu/MenuDetail";
 import MenuList from "./menu/MenuList";
 import Navigation from "./navigation/Navigation";
@@ -15,6 +16,9 @@ import OrderPage from "./order/OrderPage";
 import { CartProvider } from "./contexts/CartContext";
 
 function App() {
+  useEffect(() => {
+    document.title = "Pizza Order System";
+  }, []);
   return (
     <JwtProvider>
       <CartProvider>
@@ -23,7 +27,7 @@ function App() {
             <Navigation/>
             <Switch>
               <Route exact path="/">
-                <MenuList menuList={menuList} />
+                <MenuList/>
               </Route>
               <Route exact path="/login">
                 <SignIn />

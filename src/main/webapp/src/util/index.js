@@ -1,4 +1,4 @@
-import { fetchMenuList, AddMenu } from './menu';
+import { fetchMenuList, AddMenu, getMenuList } from './menu';
 import { fetchCartList, addCartItem, removeCartItem } from './cart';
 import { createOrder, fetchOrderList, fetchDisplayOrderList, acceptOrder, rejectOrder, completeCook, serveOrder, startDelivery, completeDelivery, emergency } from './order';
 import {
@@ -35,4 +35,5 @@ export {
   completeDelivery,
   emergency,
   fetchSalesListByPeriod,
+  getMenuList,
 };

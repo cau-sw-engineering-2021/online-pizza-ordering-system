@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Grid, Typography } from "@material-ui/core";
 import MenuItem from "./MenuItem";
 import styled from "styled-components";
-import { fetchMenuList } from "../util";
+import { getMenuList } from "../util";
 
 const MenuGrid = styled(Grid)`
   padding: 0;
@@ -13,7 +13,7 @@ function MenuList() {
   const [menuList, setMenuList] = useState([]);
 
   useEffect(() => {
-    fetchMenuList().then((json) => setMenuList(json.menuList));
+    getMenuList().then((json) => setMenuList(json.menuList));
   }, []);
 
   return (

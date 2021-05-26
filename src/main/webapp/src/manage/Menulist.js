@@ -68,7 +68,6 @@ const Menulist = () => {
               <TableCell>Name</TableCell>
               <TableCell>Price</TableCell>
               <TableCell>Size</TableCell>
-              <TableCell>ImgUrl</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -79,7 +78,6 @@ const Menulist = () => {
                 </TableCell>
                 <TableCell>{menu.price}</TableCell>
                 <TableCell>{menu.size}</TableCell>
-                <TableCell>{menu.imgUrl}</TableCell>
                 <TableCell>
                   <BorderColorSharp />
                 </TableCell>
