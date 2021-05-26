@@ -38,9 +38,13 @@ const CartProvider = ({ children }) => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    if (!localStorage.getItem("cart")) {
+    const localItems = localStorage.getItem("cart");
+
+    if (!localItems) {
       setItems(dummyCart);
       localStorage.setItem("cart", JSON.stringify(dummyCart));
+    } else {
+      setItems(JSON.parse(localItems));
     }
   }, []);
 
