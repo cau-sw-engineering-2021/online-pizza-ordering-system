@@ -73,12 +73,15 @@ Online Pizza Ordering System에서는 개인피자 가게에서 고객들이 보
 Demo project is running [here](https://lmu.makerdark98.dev/pizza)
 
 ### Subgroup A
+[Youtube](https://youtu.be/XLGGKRKrsR8)
 ![Demo A](./images/demo-A.png)
 
 ### Subgroup B
+[Youtube](https://youtu.be/2luGD9vrPew)
 ![Demo B](./images/demo-B.png)
 
 ### Subgroup C
+[Youtube](https://youtu.be/RCOiV206bWo)
 ![Demo C](./images/demo-C.png)
 
 
