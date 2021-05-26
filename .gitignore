@@ -1,0 +1,14 @@
+.idea
+*.iml
+target
+
+**/node_modules/**
+build
+.settings
+.classpath
+.gradle
+.project
+bin
+tags
+
+.DS_Store
