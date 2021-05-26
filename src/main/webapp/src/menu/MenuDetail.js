@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import React, { useCallback } from "react";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import OptionForm from "../option/OptionForm";
+import useCart from "../hooks/useCart";
 
 function getMenu(id) {
   // Dummy Data
@@ -103,14 +104,24 @@ const MenuTitle = styled.h1`
 `;
 
 function MenuDetail() {
+  const [, actions] = useCart();
   const { id } = useParams();
+  const history = useHistory();
 
   const menu = getMenu(id);
 
-  const addToCart = useCallback((data) => {
-    // TODO: Add To Cart
-    console.log(data);
-  }, []);
+  const addToCart = useCallback(
+    (data) => {
+      actions.addItem(data);
+
+      const moveToCart = window.confirm("장바구니로 이동하시겠습니까?");
+
+      if (moveToCart) {
+        history.push(`/cart`);
+      }
+    },
+    [actions, history]
+  );
 
   return (
     <DetailContainer className="MenuDetail">

@@ -1,10 +1,8 @@
-import { useState, useContext, useCallback } from "react";
+import { useContext, useCallback } from "react";
 import CartContext from "../contexts/CartContext";
 import { addCartItem, removeCartItem, fetchCartList } from "../util";
 
 export default function useCart() {
-  const [lastItemId, setLastItemId] = useState(1);
-
   const { state, actions } = useContext(CartContext);
   // TODO: 로그인 관련 처리
   const jwt = "";
@@ -21,7 +19,6 @@ export default function useCart() {
       const localCart = JSON.parse(localStorage.getItem("cart"));
 
       if (localCart) {
-        setLastItemId(Math.max(localCart.map((item) => item.id)));
         actions.setItems(localCart);
       }
     }
@@ -32,18 +29,22 @@ export default function useCart() {
       if (isLoggedIn) {
         addCartItem({ jwt, item });
       } else {
-        const newId = lastItemId + 1;
+        const localCart = JSON.parse(localStorage.getItem("cart"));
+
+        const maxId = Math.max.apply(
+          Math,
+          localCart.map((item) => item.id)
+        );
 
         localStorage.setItem(
           "cart",
-          JSON.stringify([...state.items, { ...item, id: newId }])
+          JSON.stringify([...state.items, { ...item, id: maxId + 1 }])
         );
-        setLastItemId(newId);
       }
 
       syncCart();
     },
-    [isLoggedIn, lastItemId, state, syncCart]
+    [isLoggedIn, state, syncCart]
   );
 
   const removeItem = useCallback(
