@@ -12,26 +12,6 @@ import CartPage from "./cart/CartPage";
 import OrderPage from "./order/OrderPage";
 import { CartProvider } from "./contexts/CartContext";
 
-// TODO: 백엔드와 데이터 형식 조율, 비동기 처리로 변경
-const menuList = [
-  {
-    id: 1,
-    name: "Pizza1",
-    price: { L: 20000, M: 11000 },
-    size: ["L", "M"],
-    imgSrc:
-      "https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-  },
-  {
-    id: 2,
-    name: "Pizza2",
-    price: { L: 17900, M: 11000 },
-    size: ["L", "M"],
-    imgSrc:
-      "https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-  },
-];
-
 function App() {
   return (
     <div className="App">
@@ -41,7 +21,7 @@ function App() {
           <Navigation isLoggedIn={true} />
           <Switch>
             <Route exact path="/">
-              <MenuList menuList={menuList} />
+              <MenuList />
             </Route>
             <Route exact path="/login">
               <SignIn />

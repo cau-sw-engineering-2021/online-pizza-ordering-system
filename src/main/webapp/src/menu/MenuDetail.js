@@ -11,7 +11,7 @@ function getMenu(id) {
     name: "Pizza1",
     price: { L: 20000, M: 11000 },
     size: ["L", "M"],
-    imgSrc:
+    imgLocation:
       "https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cGl6emF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
     options: [
       {
@@ -126,7 +126,7 @@ function MenuDetail() {
   return (
     <DetailContainer className="MenuDetail">
       <ImageSection>
-        <MenuImage src={menu.imgSrc} alt={menu.name} />
+        <MenuImage src={menu.imgLocation} alt={menu.name} />
       </ImageSection>
       <DetailSection>
         <MenuTitle>{menu.name}</MenuTitle>
