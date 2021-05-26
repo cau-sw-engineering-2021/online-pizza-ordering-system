@@ -24,7 +24,7 @@ public class ManagementController {
     @Autowired
     UserRepository userRepository;
     @PostMapping("/user/delete")
-    public ResponseEntity<?> deleteUser(Map<String, String> user) {
+    public ResponseEntity<?> deleteUser(@RequestBody Map<String, String> user) {
         ResponseEntity<Object> retval = null;
         Map<String, Object> result = new HashMap<String, Object>();
         if(deleteUserOperator.deleteUser(user.get("id"))) {

@@ -1,4 +1,4 @@
-import { apiserver } from '../../package.json';
+import { apiserver } from "../../package.json";
 const createOrder = async ({
   id,
   /* ?? I Don't know about it */
@@ -8,11 +8,11 @@ const createOrder = async ({
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({id})
+    body: JSON.stringify({ id }),
   });
 
   return await response.json();
-}
+};
 
 const fetchDisplayOrderList = async () => {
   const response = await fetch(`${apiserver}/order/display`, {
@@ -28,11 +28,11 @@ const fetchOrderList = async ({ jwt }) => {
     headers: {
       "Content-Type": "application/json",
       "X-AUTH-TOKEN": jwt,
-    }
+    },
   });
 
   return await response.json();
-}
+};
 
 const acceptOrder = async ({ orderId, jwt }) => {
   const response = await fetch(`${apiserver}/order/accept`, {
