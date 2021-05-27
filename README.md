@@ -77,7 +77,7 @@ Demo project is running [here](https://lmu.makerdark98.dev/pizza)
 ![Demo A](./images/demo-A.png)
 
 ### Subgroup B
-[Youtube](https://youtu.be/8z775S-QGUw)
+[Youtube](https://youtu.be/RE4GfXnekZY)
 ![Demo B](./images/demo-B.png)
 
 ### Subgroup C
